@@ -667,11 +667,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/amorqww/RiderProjects/Pizza/Pizza/Pizza.csproj",
-      "projectName": "Pizza",
-      "projectPath": "/Users/amorqww/RiderProjects/Pizza/Pizza/Pizza.csproj",
+      "projectUniqueName": "/Users/amorqww/RiderProjects/Pizza/Domain/Domain.csproj",
+      "projectName": "Domain",
+      "projectPath": "/Users/amorqww/RiderProjects/Pizza/Domain/Domain.csproj",
       "packagesPath": "/Users/amorqww/.nuget/packages/",
-      "outputPath": "/Users/amorqww/RiderProjects/Pizza/Pizza/obj/",
+      "outputPath": "/Users/amorqww/RiderProjects/Pizza/Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/amorqww/.nuget/NuGet/NuGet.Config"
