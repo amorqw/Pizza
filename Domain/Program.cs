@@ -1,8 +1,13 @@
 
+using Core.Interfaces.Auth;
+using Core.Services.Auth;
+using Infrastructure.Content.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddScoped<IAuth, AuthService>();
+builder.Services.AddScoped<UserService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

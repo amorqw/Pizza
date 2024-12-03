@@ -38,7 +38,7 @@ public class UserService: IUser
         }
     }
 
-    public async Task<int> CreateUser(Users user)
+    public async Task<int> CreateUserr(Users user)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {

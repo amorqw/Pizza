@@ -1,0 +1,288 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/amorqww/RiderProjects/Pizza/Fr/Fr.csproj": {}
+  },
+  "projects": {
+    "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj",
+        "projectName": "Core",
+        "projectPath": "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj",
+        "packagesPath": "/Users/amorqww/.nuget/packages/",
+        "outputPath": "/Users/amorqww/RiderProjects/Pizza/Core /obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/amorqww/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/amorqww/RiderProjects/Pizza/Domain/Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/amorqww/RiderProjects/Pizza/Domain/Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "/Users/amorqww/RiderProjects/Pizza/Domain/Domain.csproj",
+        "packagesPath": "/Users/amorqww/.nuget/packages/",
+        "outputPath": "/Users/amorqww/RiderProjects/Pizza/Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/amorqww/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj": {
+                "projectPath": "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj"
+              },
+              "/Users/amorqww/RiderProjects/Pizza/Infrastructure/Infrastructure.csproj": {
+                "projectPath": "/Users/amorqww/RiderProjects/Pizza/Infrastructure/Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/amorqww/RiderProjects/Pizza/Fr/Fr.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/amorqww/RiderProjects/Pizza/Fr/Fr.csproj",
+        "projectName": "Fr",
+        "projectPath": "/Users/amorqww/RiderProjects/Pizza/Fr/Fr.csproj",
+        "packagesPath": "/Users/amorqww/.nuget/packages/",
+        "outputPath": "/Users/amorqww/RiderProjects/Pizza/Fr/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/amorqww/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj": {
+                "projectPath": "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj"
+              },
+              "/Users/amorqww/RiderProjects/Pizza/Domain/Domain.csproj": {
+                "projectPath": "/Users/amorqww/RiderProjects/Pizza/Domain/Domain.csproj"
+              },
+              "/Users/amorqww/RiderProjects/Pizza/Infrastructure/Infrastructure.csproj": {
+                "projectPath": "/Users/amorqww/RiderProjects/Pizza/Infrastructure/Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/amorqww/RiderProjects/Pizza/Infrastructure/Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/amorqww/RiderProjects/Pizza/Infrastructure/Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "/Users/amorqww/RiderProjects/Pizza/Infrastructure/Infrastructure.csproj",
+        "packagesPath": "/Users/amorqww/.nuget/packages/",
+        "outputPath": "/Users/amorqww/RiderProjects/Pizza/Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/amorqww/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj": {
+                "projectPath": "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

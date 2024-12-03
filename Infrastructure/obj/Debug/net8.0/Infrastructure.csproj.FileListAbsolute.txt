@@ -1,0 +1,16 @@
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/bin/Debug/net8.0/Infrastructure.deps.json
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/bin/Debug/net8.0/Infrastructure.dll
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/bin/Debug/net8.0/Infrastructure.pdb
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/bin/Debug/net8.0/Core.dll
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/bin/Debug/net8.0/Core.pdb
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/obj/Debug/net8.0/Infrastructure.csproj.AssemblyReference.cache
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/obj/Debug/net8.0/Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfoInputs.cache
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfo.cs
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/obj/Debug/net8.0/Infrastructure.csproj.CoreCompileInputs.cache
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/obj/Debug/net8.0/Infrastructure.sourcelink.json
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/obj/Debug/net8.0/Infrastr.15EFFBFE.Up2Date
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/obj/Debug/net8.0/Infrastructure.dll
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/obj/Debug/net8.0/refint/Infrastructure.dll
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/obj/Debug/net8.0/Infrastructure.pdb
+/Users/amorqww/RiderProjects/Pizza/Infrastructure/obj/Debug/net8.0/ref/Infrastructure.dll
