@@ -19,7 +19,7 @@ where(PizzaId = @id)}", new { PizzaId = id }) ?? new Pizzas();
         }
     }
 
-    public async Task<Pizzas> AddPizza(Pizzas pizza)
+    public async Task<Pizzas> CreatePizza(Pizzas pizza)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
