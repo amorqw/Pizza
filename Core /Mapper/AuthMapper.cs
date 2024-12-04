@@ -1,4 +1,5 @@
 using Core.Dto;
+using Core.Dto.User;
 using Core.Models;
 
 namespace Core.Mapper;

@@ -37,3 +37,12 @@
 /Users/amorqww/RiderProjects/Pizza/Domain/bin/Debug/net8.0/Infrastructure.dll
 /Users/amorqww/RiderProjects/Pizza/Domain/bin/Debug/net8.0/Core.pdb
 /Users/amorqww/RiderProjects/Pizza/Domain/bin/Debug/net8.0/Infrastructure.pdb
+/Users/amorqww/RiderProjects/Pizza/Domain/bin/Debug/net8.0/BCrypt.Net-Next.dll
+/Users/amorqww/RiderProjects/Pizza/Domain/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/amorqww/RiderProjects/Pizza/Domain/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/amorqww/RiderProjects/Pizza/Domain/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/amorqww/RiderProjects/Pizza/Domain/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/amorqww/RiderProjects/Pizza/Domain/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Users/amorqww/RiderProjects/Pizza/Domain/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/amorqww/RiderProjects/Pizza/Domain/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Users/amorqww/RiderProjects/Pizza/Domain/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll

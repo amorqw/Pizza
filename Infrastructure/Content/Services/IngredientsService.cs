@@ -1,5 +1,6 @@
 using Core.Interfaces;
 using Core.Models;
+using Core.Dto.Ingredients;
 using Dapper;
 using Npgsql;
 
@@ -27,7 +28,7 @@ public class IngredientsService : IIngredients
         }
     }
 
-    public async Task<bool> AddIngredient(Ingredients ingredient)
+    public async Task<bool> CreateIngredient(CreateIngrDto ingredient)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {

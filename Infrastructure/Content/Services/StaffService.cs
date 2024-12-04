@@ -40,7 +40,7 @@ public class StaffService : IStaff
         }
     }
 
-    public async Task<bool> UpdateStaff(UpdateStaffDto staff)
+    public async Task<Staff> UpdateStaff(UpdateStaffDto staff, int id)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
@@ -48,9 +48,13 @@ public class StaffService : IStaff
             string sql = @"UPDATE Staff
                            SET  
                                Position = @Position
-                           WHERE StaffId = @StaffId";
-            var result = await connection.ExecuteAsync(sql, staff);
-            return result > 0;
+                           WHERE StaffId = @StaffId returning *";
+            return await connection.QueryFirstOrDefaultAsync<Staff>(sql, new
+            {
+                StaffId =id,
+                Position = staff.Position
+            });
+            
         }
     }
 

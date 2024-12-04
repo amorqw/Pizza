@@ -41,7 +41,7 @@ public class StaffController:ControllerBase
     public async Task<IActionResult> UpdateStaff(int id, [FromBody] UpdateStaffDto staff)
     {
 
-        var updatedStaff = await _staffService.UpdateStaff(staff);
+        var updatedStaff = await _staffService.UpdateStaff(staff, id);
 
         if (updatedStaff == null)
         {

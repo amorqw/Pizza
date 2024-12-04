@@ -14,11 +14,14 @@ public class PizzaService : IPizzas
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             connection.Open();
-            return await connection.QueryFirstOrDefaultAsync<Pizzas>(@"select * 
-    from pizzas 
-where(PizzaId = @id)}", new { PizzaId = id }) ?? new Pizzas();
+            return await connection.QueryFirstOrDefaultAsync<Pizzas>(@"SELECT * 
+                                                                    FROM pizzas 
+                                                                    WHERE PizzaId = @id", 
+                       new { id }) 
+                   ?? new Pizzas();
         }
     }
+
 
     public async Task<Pizzas> CreatePizza(PizzaDto pizza)
     {

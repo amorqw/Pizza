@@ -1,5 +1,7 @@
+using System.Data;
 using Core.Dto;
 using Core.Interfaces;
+using Core.Interfaces.Auth;
 using Core.Models;
 using Dapper;
 using Npgsql;
@@ -8,6 +10,12 @@ namespace Infrastructure.Content.Services;
 
 public class UserService: IUser
 {
+    private readonly IPasswordHasher _passwordHasher;
+
+    public UserService(IPasswordHasher passwordHasher)
+    {
+        _passwordHasher = passwordHasher;
+    }
     public async Task<Users> GetUser(int id )
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
@@ -38,15 +46,26 @@ public class UserService: IUser
         }
     }
 
-    public async Task<int> CreateUserr(Users user)
+    public async Task<Users> GetUserByEmail(string email)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             connection.Open();
-            string sql = @"insert into users(FirstName, LastName,Email, Role,Password,PhoneNumber)
-values (@FirstName, @LastName, @Email, @Role, @Password, @PhoneNumber)";
+            return await connection.QueryFirstOrDefaultAsync<Users>(@"SELECT * FROM users WHERE email = @Email", new { Email = email });
+        }
+    }
+
+    public async Task<int> CreateUser(Users user)
+    {
+        using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+        {
+            connection.Open();
+            string sql = @"
+                INSERT INTO users (FirstName, LastName, Email, Role, Password, PhoneNumber)
+                VALUES (@FirstName, @LastName, @Email, @Role, @Password, @PhoneNumber)";
             return await connection.ExecuteAsync(sql, user);
         }
     }
+
     
 }

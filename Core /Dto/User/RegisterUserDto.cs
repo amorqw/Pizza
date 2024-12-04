@@ -1,4 +1,4 @@
-namespace Core.Dto;
+namespace Core.Dto.User;
 
 public class RegisterUserDto
 {

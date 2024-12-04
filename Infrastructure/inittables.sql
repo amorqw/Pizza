@@ -24,12 +24,12 @@ create table PizzaIngredients
 create table Users
 (
     UserId      serial primary key,
-    FirstName   varchar(50),
-    LastName    varchar(50),
-    Email       varchar(50),
-    PhoneNumber varchar(50),
-    Password    varchar(50),
-    Role        varchar(50)
+    FirstName   varchar,
+    LastName    varchar,
+    Email       varchar,
+    PhoneNumber varchar,
+    Password    varchar,
+    Role        varchar
 );
 
 create table Orders

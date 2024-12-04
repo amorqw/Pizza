@@ -1,6 +1,7 @@
 using Core.Dto.Pizza;
 using Core.Interfaces;
 using Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Pizza.Controllers;
@@ -17,6 +18,7 @@ public class PizzaController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize]
     public async Task<IActionResult> GetPizzaById(int id)
     {
         var pizza = await _pizzaService.GetPizza(id);
@@ -45,22 +47,18 @@ public class PizzaController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdatePizza(int id, [FromBody] PizzaDto updatedPizza)
     {
-        // Проверка валидности данных
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
 
-        // Вызов метода обновления пиццы в сервисе
         var result = await _pizzaService.UpdatePizza(id, updatedPizza);
 
-        // Проверка на наличие результата
         if (result == null)
         {
             return NotFound($"Pizza with ID {id} not found.");
         }
 
-        // Возвращаем обновленную пиццу
         return Ok(result);
     }
 
