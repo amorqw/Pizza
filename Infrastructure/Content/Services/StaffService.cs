@@ -1,3 +1,4 @@
+using Core.Dto;
 using Core.Interfaces;
 using Core.Models;
 using Dapper;
@@ -27,7 +28,7 @@ public class StaffService : IStaff
         }
     }
 
-    public async Task<bool> AddStaff(Staff staff)
+    public async Task<bool> AddStaff(StaffDto staff)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
@@ -39,16 +40,14 @@ public class StaffService : IStaff
         }
     }
 
-    public async Task<bool> UpdateStaff(Staff staff)
+    public async Task<bool> UpdateStaff(UpdateStaffDto staff)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             await connection.OpenAsync();
-            string sql = @"UPDATE Staffs
-                           SET FirstName = @FirstName, 
-                               LastName = @LastName, 
-                               Position = @Position, 
-                               HireDate = @HireDate
+            string sql = @"UPDATE Staff
+                           SET  
+                               Position = @Position
                            WHERE StaffId = @StaffId";
             var result = await connection.ExecuteAsync(sql, staff);
             return result > 0;

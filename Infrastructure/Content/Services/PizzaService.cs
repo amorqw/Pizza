@@ -1,4 +1,5 @@
 using System.Data.Common;
+using Core.Dto.Pizza;
 using Dapper;
 using Core.Interfaces;
 using Core.Models;
@@ -19,7 +20,7 @@ where(PizzaId = @id)}", new { PizzaId = id }) ?? new Pizzas();
         }
     }
 
-    public async Task<Pizzas> CreatePizza(Pizzas pizza)
+    public async Task<Pizzas> CreatePizza(PizzaDto pizza)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
@@ -30,15 +31,29 @@ values (@NamePizza,@Description,@Price,@Size,@Available)";
         }
     }
 
-    public async Task<Pizzas> UpdatePizza(Pizzas pizza)
+    public async Task<Pizzas> UpdatePizza(int pizzaId, PizzaDto pizza)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             connection.Open();
-            string sql= @"Update Pizzas set NamePizza=@NamePizza,Description=@Description,Price=@Price,Size=@Size,Available=@Available where PizzaId = @PizzaId returning *";
-            return await connection.QueryFirstOrDefaultAsync<Pizzas>(sql, pizza);
+            string sql = @"
+            UPDATE Pizzas 
+            SET NamePizza = @NamePizza, Description = @Description, Price = @Price, Size = @Size, Available = @Available
+            WHERE PizzaId = @PizzaId
+            RETURNING *";
+        
+            return await connection.QueryFirstOrDefaultAsync<Pizzas>(sql, new 
+            {
+                PizzaId = pizzaId,
+                pizza.NamePizza,
+                pizza.Description,
+                pizza.Price,
+                pizza.Size,
+                pizza.Available
+            });
         }
     }
+
 
     public async Task<bool> DeletePizza(int Pizzaid)
     {
