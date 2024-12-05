@@ -22,7 +22,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
             ValidIssuer = builder.Configuration["JwtOptions:Issuer"],  
-            ValidAudience = builder.Configuration["JwtOptions:Audience"],  // Значение из конфигурации
+            ValidAudience = builder.Configuration["JwtOptions:Audience"],  
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtOptions:SecretKey"]))  // Приватный ключ
         };
         options.Events = new JwtBearerEvents

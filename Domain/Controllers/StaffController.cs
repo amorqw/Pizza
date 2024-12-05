@@ -17,8 +17,7 @@ public class StaffController:ControllerBase
         _staffService = staffService;
     }
 
-    [HttpGet]
-    [Route("/staff")]
+    [HttpGet("{id}")]
     public async Task<IActionResult> GetStaff(int id)
     {
         var staff = await _staffService.GetStaffById(id);

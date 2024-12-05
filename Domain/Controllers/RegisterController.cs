@@ -11,27 +11,24 @@ namespace Pizza.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly IAuth _authService; // Внедряем IAuth вместо AuthUserService
+        private readonly IAuth _authService; 
 
-        // Внедрение зависимости через конструктор
         public AuthController(IAuth authService)
         {
             _authService = authService;
         }
 
-        // Метод для регистрации пользователя
         [HttpPost("register")]
         public async Task<IActionResult> RegisterUser(RegisterUserDto request)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState); // Возвращаем ошибки, если модель невалидна
+                return BadRequest(ModelState); 
             }
             
 
             try
             {
-                // Регистрация нового пользователя
                 await _authService.Register(request.LastName, request.Email, request.Password, request.PhoneNumber);
                 return Ok(new { Message = "User successfully registered!" });
             }
@@ -42,18 +39,16 @@ namespace Pizza.Controllers
         }
 
 
-        // Метод для логина пользователя
         [HttpPost("login")]
         public async Task<IActionResult> LoginUser(LoginUserDto request)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState); // Возвращаем ошибки, если модель невалидна
+                return BadRequest(ModelState); 
             }
 
             try
             {
-                // Логин пользователя и получение токена
                 var token = await _authService.Login(request.Email, request.Password);
                 return Ok(new { Token = token });
             }

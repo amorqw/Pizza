@@ -41,7 +41,7 @@ public class PizzaController : ControllerBase
         }
 
         var createdPizza = await _pizzaService.CreatePizza(newPizza);
-        return Ok(createdPizza);
+        return Ok("Success");
     }
 
     [HttpPut("{id}")]
