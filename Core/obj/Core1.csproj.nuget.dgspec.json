@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/amorqww/RiderProjects/Pizza/Core /Core1.csproj": {}
+    "/Users/amorqww/RiderProjects/Pizza/Core/Core.csproj": {}
   },
   "projects": {
-    "/Users/amorqww/RiderProjects/Pizza/Core /Core1.csproj": {
+    "/Users/amorqww/RiderProjects/Pizza/Core/Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/amorqww/RiderProjects/Pizza/Core /Core1.csproj",
+        "projectUniqueName": "/Users/amorqww/RiderProjects/Pizza/Core/Core.csproj",
         "projectName": "Core1",
-        "projectPath": "/Users/amorqww/RiderProjects/Pizza/Core /Core1.csproj",
+        "projectPath": "/Users/amorqww/RiderProjects/Pizza/Core/Core.csproj",
         "packagesPath": "/Users/amorqww/.nuget/packages/",
-        "outputPath": "/Users/amorqww/RiderProjects/Pizza/Core /obj/",
+        "outputPath": "/Users/amorqww/RiderProjects/Pizza/Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/amorqww/.nuget/NuGet/NuGet.Config"
