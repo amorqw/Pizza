@@ -1,0 +1,74 @@
+/* Стили для страницы входа */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;  /* Светлый фон для контента */
+    color: #333;
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #ff7f00;  /* Оранжевый для заголовка */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+button.submit-btn {
+    padding: 10px;
+    background-color: #ff7f00;  /* Оранжевая кнопка */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+button.submit-btn:hover {
+    background-color: #e66b00;  /* Темный оранжевый на hover */
+}
+
+p {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+a {
+    color: #ff7f00;  /* Оранжевый для ссылок */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

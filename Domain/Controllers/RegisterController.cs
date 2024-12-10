@@ -1,25 +1,29 @@
-using Core.Dto;
 using Core.Interfaces.Auth;
-using Core.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 using Core.Dto.User;
 
 namespace Pizza.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthController : ControllerBase
+    public class RegisterController : Controller
     {
         private readonly IAuth _authService; 
 
-        public AuthController(IAuth authService)
+        public RegisterController(IAuth authService)
         {
             _authService = authService;
         }
 
-        [HttpPost("register")]
-        public async Task<IActionResult> RegisterUser(RegisterUserDto request)
+        [HttpGet]
+        [Route("/register")]
+        public IActionResult Index()
+        {
+            return View("Index", new RegisterUserDto());
+        }
+
+        [HttpPost("/register")]
+        public async Task<IActionResult> RegisterUser([FromForm] RegisterUserDto request)
         {
             if (!ModelState.IsValid)
             {
@@ -30,7 +34,7 @@ namespace Pizza.Controllers
             try
             {
                 await _authService.Register(request.LastName, request.Email, request.Password, request.PhoneNumber);
-                return Ok(new { Message = "User successfully registered!" });
+                return RedirectToAction("Index", "Login");
             }
             catch (Exception ex)
             {
@@ -39,7 +43,7 @@ namespace Pizza.Controllers
         }
 
 
-        [HttpPost("login")]
+        /*[HttpPost("/login")]
         public async Task<IActionResult> LoginUser(LoginUserDto request)
         {
             if (!ModelState.IsValid)
@@ -60,6 +64,6 @@ namespace Pizza.Controllers
             {
                 return StatusCode(500, new { Message = "Internal server error", Details = ex.Message });
             }
-        }
+        } */
     }
 }

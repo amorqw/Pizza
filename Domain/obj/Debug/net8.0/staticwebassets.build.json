@@ -1,11 +1,77 @@
 {
   "Version": 1,
-  "Hash": "z1oveDIocgXv7MGYLixGvcjumed8L8Wp+fZJH9WpGIA=",
+  "Hash": "5j1uL8smmmtaUv9eAv3EfjWxf98nQP891Nmw4xw91qM=",
   "Source": "Domain",
   "BasePath": "_content/Domain",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Domain\\wwwroot",
+      "Source": "Domain",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "BasePath": "_content/Domain",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\home.css",
+      "SourceId": "Domain",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "BasePath": "_content/Domain",
+      "RelativePath": "css/home.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\home.css"
+    },
+    {
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\login.css",
+      "SourceId": "Domain",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "BasePath": "_content/Domain",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\registration.css",
+      "SourceId": "Domain",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "BasePath": "_content/Domain",
+      "RelativePath": "css/registration.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\registration.css"
+    }
+  ]
 }

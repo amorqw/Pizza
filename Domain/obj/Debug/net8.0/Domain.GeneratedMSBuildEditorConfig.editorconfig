@@ -17,3 +17,15 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\kirill\RiderProjects\GITPIZZA\Pizza\Domain
 build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Home/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Register/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJcaW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

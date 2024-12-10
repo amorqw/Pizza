@@ -1,0 +1,43 @@
+@model Core.Dto.User.RegisterUserDto
+@{
+ViewData["Title"] = "Registration";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="~/css/registration.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+    <h1>Create Your Account</h1>
+    <form action="/Register" method="post">
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input name="Email" value="@Model.Email" required />
+        </div>
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password" name="Password" required />
+        </div>
+        <div class="form-group">
+            <label for="PhoneNumber">Phone Number</label>
+            <input name="PhoneNumber" value="@Model.PhoneNumber" required />
+        </div>
+        <div class="form-group">
+            <label for="FirstName">First Name</label>
+            <input name="FirstName" value="@Model.FirstName" required />
+        </div>
+        <div class="form-group">
+            <label for="LastName">Last Name</label>
+            <input name="LastName" value="@Model.LastName" required />
+        </div>
+        <button class="submit-btn" type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="Login">Login here</a></p>
+</div>
+</body>
+</html>

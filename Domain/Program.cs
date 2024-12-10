@@ -23,7 +23,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
             ValidIssuer = builder.Configuration["JwtOptions:Issuer"],  
             ValidAudience = builder.Configuration["JwtOptions:Audience"],  
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtOptions:SecretKey"]))  // Приватный ключ
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtOptions:SecretKey"])) 
         };
         options.Events = new JwtBearerEvents
         {
@@ -56,13 +56,14 @@ builder.Services.AddScoped<IIngredients, IngredientsService>();
 builder.Services.AddScoped<PizzaIngredientsService>();
 builder.Services.AddScoped<StaffService>();
 builder.Services.AddScoped<ReviewsService>();
-builder.Services.AddScoped<IUser, UserService>();  // Регистрация UserService для интерфейса IUser
+builder.Services.AddScoped<IUser, UserService>();  
 builder.Services.AddScoped<OrderItemsService>();
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(nameof(JwtOptions)));
 builder.Services.AddControllers();
 
+builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpContextAccessor();
@@ -72,7 +73,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+        c.RoutePrefix = "swagger";  
+    });
 }
 
 app.UseHttpsRedirection();
@@ -81,6 +86,10 @@ app.UseCors("AllowLocalhost");
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseStaticFiles();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=HomeController}/{action=Index}/{id?}");
 
 app.MapControllers();
 

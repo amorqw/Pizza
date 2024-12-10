@@ -1,0 +1,31 @@
+@{
+ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="~/css/login.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+    <h1>Login to Pizza World</h1>
+    <!-- Используем asp-action для правильного направления формы -->
+    <form asp-action="Login" method="post">
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="submit-btn">Login</button>
+    </form>
+    <p>Don't have an account? <a href="Register">Register here</a></p>
+</div>
+</body>
+</html>

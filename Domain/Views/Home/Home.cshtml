@@ -1,0 +1,51 @@
+@{
+ViewData["Title"] = "Welcome to Pizza World";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="~/css/home.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <h1>Pizza World</h1>
+        </div>
+        <nav>
+            <ul>
+                @if (Context.Request.Cookies["tasty-cookies"] == null) 
+                {
+                <!-- Если токен отсутствует, показываем ссылки на Login и Register -->
+                <li><a href="/Login">Login</a></li>
+                <li><a href="/Register">Register</a></li>
+                }
+                else
+                {
+                <!-- Если токен есть, показываем ссылку на Logout -->
+                <li>
+                    <form action="/logout" method="post">
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <h2>Welcome to the Best Pizza Place!</h2>
+    <p>Order your favorite pizza online and enjoy delicious flavors at home.</p>
+    <a href="/Menu" class="cta-btn">Explore Menu</a>
+</div>
+
+<footer>
+    <p>&copy; 2024 Pizza World. All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* Стили для домашней страницы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;  /* Светлый фон для контента */
+    color: #333;
+}
+
+.navbar {
+    background-color: #ff7f00; /* Оранжевый цвет для navbar */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo h1 {
+    color: white;
+    font-size: 2rem;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 20px;
+}
+
+.navbar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.navbar nav ul li a:hover {
+    color: #2d2d2d;  /* Темный цвет для hover */
+}
+
+.hero {
+    background-color: #ff7f00;  /* Оранжевый фон */
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero .cta-btn {
+    background-color: #2d2d2d;  /* Черная кнопка */
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: white;
+}
+
+.hero .cta-btn:hover {
+    background-color: #333;  /* Тёмно-серый на hover */
+}
+
+footer {
+    background-color: #2d2d2d;  /* Черный футер */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer p {
+    font-size: 1rem;
+}
