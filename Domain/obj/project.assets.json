@@ -1037,8 +1037,8 @@
     },
     "Core/1.0.0": {
       "type": "project",
-      "path": "../Core /Core.csproj",
-      "msbuildProject": "../Core /Core.csproj"
+      "path": "../Core/Core.csproj",
+      "msbuildProject": "../Core/Core.csproj"
     },
     "Infrastructure/1.0.0": {
       "type": "project",
@@ -1082,8 +1082,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj": {
-              "projectPath": "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj"
+            "/Users/amorqww/RiderProjects/Pizza/Core/Core.csproj": {
+              "projectPath": "/Users/amorqww/RiderProjects/Pizza/Core/Core.csproj"
             },
             "/Users/amorqww/RiderProjects/Pizza/Infrastructure/Infrastructure.csproj": {
               "projectPath": "/Users/amorqww/RiderProjects/Pizza/Infrastructure/Infrastructure.csproj"

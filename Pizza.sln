@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{6EC8DBEF-F765-49C0-8E09-9712EFFD246C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core \Core.csproj", "{5AA91C8F-7BE7-48CA-8CAB-1A392A7CBD37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{5AA91C8F-7BE7-48CA-8CAB-1A392A7CBD37}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{70882884-6DEC-48F3-94CF-C9AEAF734EC5}"
 EndProject

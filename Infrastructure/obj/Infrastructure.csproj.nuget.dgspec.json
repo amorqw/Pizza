@@ -4,14 +4,14 @@
     "/Users/amorqww/RiderProjects/Pizza/Infrastructure/Infrastructure.csproj": {}
   },
   "projects": {
-    "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj": {
+    "/Users/amorqww/RiderProjects/Pizza/Core/Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj",
+        "projectUniqueName": "/Users/amorqww/RiderProjects/Pizza/Core/Core.csproj",
         "projectName": "Core",
-        "projectPath": "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj",
+        "projectPath": "/Users/amorqww/RiderProjects/Pizza/Core/Core.csproj",
         "packagesPath": "/Users/amorqww/.nuget/packages/",
-        "outputPath": "/Users/amorqww/RiderProjects/Pizza/Core /obj/",
+        "outputPath": "/Users/amorqww/RiderProjects/Pizza/Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/amorqww/.nuget/NuGet/NuGet.Config"
@@ -94,8 +94,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj": {
-                "projectPath": "/Users/amorqww/RiderProjects/Pizza/Core /Core.csproj"
+              "/Users/amorqww/RiderProjects/Pizza/Core/Core.csproj": {
+                "projectPath": "/Users/amorqww/RiderProjects/Pizza/Core/Core.csproj"
               }
             }
           }
