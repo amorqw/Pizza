@@ -1,0 +1,56 @@
+@model Core.Dto.Pizza.PizzaDto
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Pizza</title>
+    <link href="~/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Edit Pizza</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManageIngredients">Manage Ingredients</a>
+        <a href="/Admin/ManageUsers">Manage Users</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+    </nav>
+</header>
+
+<main>
+    <form action="/Admin/UpdatePizza/@Model.PizzaId" method="post">
+        <div>
+            <label for="NamePizza">Name:</label>
+            <input type="text" id="NamePizza" name="NamePizza" value="@Model.NamePizza" required />
+        </div>
+        <div>
+            <label for="Description">Description:</label>
+            <textarea id="Description" name="Description" required>@Model.Description</textarea>
+        </div>
+        <div>
+            <label for="Price">Price:</label>
+            <input type="number" id="Price" name="Price" value="@Model.Price" step="0.01" required />
+        </div>
+        <div>
+            <label for="Size">Size:</label>
+            <input type="text" id="Size" name="Size" value="@Model.Size" required />
+        </div>
+        <div>
+            <label for="Available">Available:</label>
+            <select id="Available" name="Available">
+                <option value="true" @(Model.Available ? "selected" : "")>Yes</option>
+                <option value="false" @(Model.Available ? "" : "selected")>No</option>
+            </select>
+        </div>
+        <button type="submit" class="btn">Save Changes</button>
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2024 Pizza World Admin Panel</p>
+</footer>
+
+</body>
+</html>

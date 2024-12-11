@@ -5,6 +5,7 @@ namespace Core.Interfaces;
 
 public interface IPizzas
 {
+    Task<IEnumerable<Pizzas>> GetAllPizzasAsync();
     Task<Pizzas> GetPizza(int id);
     Task<Pizzas> CreatePizza(PizzaDto pizza);
     Task<Pizzas> UpdatePizza(int id ,PizzaDto pizza);

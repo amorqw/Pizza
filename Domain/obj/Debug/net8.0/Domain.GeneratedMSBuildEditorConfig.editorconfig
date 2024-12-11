@@ -9,23 +9,39 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Pizza
 build_property.RootNamespace = Pizza
-build_property.ProjectDir = C:\Users\kirill\RiderProjects\GITPIZZA\Pizza\Domain\
+build_property.ProjectDir = /Users/amorqww/RiderProjects/PizzaViewModel/Domain/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\kirill\RiderProjects\GITPIZZA\Pizza\Domain
+build_property.MSBuildProjectDirectory = /Users/amorqww/RiderProjects/PizzaViewModel/Domain
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Home/Home.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
+[/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Admin/AdminPanel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5QYW5lbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Login/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+[/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Admin/Pizza/AddPizza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vUGl6emEvQWRkUGl6emEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Register/index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJcaW5kZXguY3NodG1s
+[/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Admin/Pizza/EditPizza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vUGl6emEvRWRpdFBpenphLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Admin/Pizza/ManagePizzas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vUGl6emEvTWFuYWdlUGl6emFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Home/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Ib21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTG9naW4vTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Register/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVnaXN0ZXIvaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

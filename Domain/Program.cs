@@ -55,6 +55,7 @@ builder.Services.AddScoped<IPizzas, PizzaService>();
 builder.Services.AddScoped<IIngredients, IngredientsService>();
 builder.Services.AddScoped<PizzaIngredientsService>();
 builder.Services.AddScoped<StaffService>();
+builder.Services.AddScoped<PizzaService>();
 builder.Services.AddScoped<ReviewsService>();
 builder.Services.AddScoped<IUser, UserService>();  
 builder.Services.AddScoped<OrderItemsService>();

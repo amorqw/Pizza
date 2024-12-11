@@ -1,0 +1,57 @@
+@model IEnumerable<Core.Models.Pizzas>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Pizzas</title>
+    <link href="~/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Manage Pizzas</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManageIngredients">Manage Ingredients</a>
+        <a href="/Admin/ManageUsers">Manage Users</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+    </nav>
+</header>
+
+<main>
+    <a href="/Admin/AddPizza" class="btn">Add New Pizza</a>
+    <div class="pizza-cards-container">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var pizza in Model)
+            {
+                <div class="pizza-card">
+                    <h3>@pizza.NamePizza</h3>
+                    <p><strong>Description:</strong> @pizza.Description</p>
+                    <p><strong>Price:</strong> $@pizza.Price</p>
+                    <p><strong>Size:</strong> @pizza.Size</p>
+                    <p><strong>Available:</strong> @(pizza.Available ? "Yes" : "No")</p>
+                    <div class="pizza-actions">
+                        <a href="/Admin/EditPizza/@pizza.PizzaId" class="btn">Edit</a>
+                        <form action="/Admin/DeletePizza/@pizza.PizzaId" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>No pizzas found.</p>
+        }
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Pizza World Admin Panel</p>
+</footer>
+
+</body>
+</html>

@@ -18,20 +18,23 @@ ViewData["Title"] = "Welcome to Pizza World";
         </div>
         <nav>
             <ul>
-                @if (Context.Request.Cookies["tasty-cookies"] == null) 
+                @if (Context.Request.Cookies["tasty-cookies"] == null)
                 {
-                <!-- Если токен отсутствует, показываем ссылки на Login и Register -->
                 <li><a href="/Login">Login</a></li>
                 <li><a href="/Register">Register</a></li>
                 }
                 else
                 {
-                <!-- Если токен есть, показываем ссылку на Logout -->
-                <li>
-                    <form action="/logout" method="post">
-                        <button type="submit">Logout</button>
-                    </form>
-                </li>
+                    <li><a href="/Menu">Menu</a></li>
+                    <li>
+                        <form action="/logout" method="post" style="display:inline;">
+                            <button type="submit" class="logout-btn">Выйти</button>
+                        </form>
+                    </li>
+                @if (ViewBag.IsAdmin)
+                {
+                <li><a href="/Admin">Admin Panel</a></li>
+                }
                 }
             </ul>
         </nav>
