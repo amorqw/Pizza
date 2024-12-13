@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Core.Dto.Pizza;
 using Core.Interfaces;
-using Core.Models;
-using System.Threading.Tasks;
 
 namespace Pizza.Controllers.Admin
 {

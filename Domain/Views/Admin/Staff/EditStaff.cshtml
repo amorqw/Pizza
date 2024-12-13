@@ -1,0 +1,39 @@
+@model Core.Dto.StaffDto
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменить сотрудника</title>
+    <link href="~/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Изменить сотрудника</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManageIngredients">Manage Ingredients</a>
+        <a href="/Admin/ManageUsers">Manage Users</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+    </nav>
+</header>
+
+<main>
+    <form action="/Admin/UpdateStaff/@Model.StaffId" method="post">
+        <div>
+            <label for="Position">Должность:</label>
+            <input id="Position" name="Position" value="@Model.Position" required />
+        </div>
+        
+        
+        <button type="submit" class="btn">Сохранить</button>
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2024 Pizza World Admin Panel</p>
+</footer>
+
+</body>
+</html>

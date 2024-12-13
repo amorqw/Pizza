@@ -1,0 +1,49 @@
+@model Core.Dto.UpdateUserDto
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменить пользователя</title>
+    <link href="~/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Изменить пользователя</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManageIngredients">Manage Ingredients</a>
+        <a href="/Admin/ManageUsers">Manage Users</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+    </nav>
+</header>
+
+<main>
+    <form action="/Admin/UpdateUser/@Model.UserId" method="post">
+        <div>
+            <label for="FirstName">Имя:</label>
+            <input id="FirstName" name="FirstName" value="@Model.FirstName" required />
+        </div>
+        <div>
+            <label for="LastName">Фамилия:</label>
+            <input id="LastName" name="LastName" value="@Model.LastName" required />
+        </div>
+        <div>
+            <label for="Email">Электронная почта:</label>
+            <input id="Email" name="Email" type="email" value="@Model.Email" required />
+        </div>
+        <div>
+            <label for="PhoneNumber">Телефон:</label>
+            <input id="PhoneNumber" name="PhoneNumber" type="tel" value="@Model.PhoneNumber" required />
+        </div>
+
+        <button type="submit" class="btn">Сохранить</button>
+    </form>
+</main>
+
+<footer>
+</footer>
+
+</body>
+</html>

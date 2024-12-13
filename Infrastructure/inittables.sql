@@ -35,7 +35,7 @@ create table Users
 create table Orders
 (
     OrderId        serial primary key,
-    UserId         int references Users (UserId) on delete cascade,
+    UserId         int references Users (UserId) ,
     OrderData      TIMESTAMP not null default current_timestamp,
     TotalPrice     int,
     Status         varchar(50),
@@ -45,8 +45,8 @@ create table Orders
 create table OrderItems
 (
     OrderItemId serial primary key,
-    OrderId     int references Orders (OrderId) on delete cascade,
-    PizzaId     int references Pizzas (PizzaId) on delete cascade,
+    OrderId     int references Orders (OrderId),
+    PizzaId     int references Pizzas (PizzaId),
     Quantity    int not null,
     ItemPrice   int not null
 );
@@ -63,9 +63,11 @@ create table Staff
 create table Reviews
 (
     ReviewId   serial primary key,
-    PizzaId    int references Pizzas (PizzaId),
-    UserId     int references Users (UserId),
+    PizzaId    int references Pizzas (PizzaId) on delete cascade,
+    UserId     int references Users (UserId) on delete cascade,
     Rating     int,
     Comment    text,
     ReviewDate TIMESTAMP not null default current_timestamp
 );
+insert into Reviews(ReviewId, pizzaid,userid,rating,comment) 
+values(1,4,5,2,2)

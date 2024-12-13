@@ -1,3 +1,4 @@
+using Core.Dto.Review;
 using Core.Interfaces;
 using Core.Models;
 using Dapper;
@@ -7,6 +8,15 @@ namespace Infrastructure.Content.Services;
 
 public class ReviewsService : IReviews
 {
+
+    public async Task<IEnumerable<Reviews>> GetAllReviews()
+    {
+        using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+        {
+            await connection.OpenAsync();
+            return await connection.QueryAsync<Reviews>("select * from reviews");
+        }
+    }
     public async Task<Reviews?> GetReviewById(int reviewId)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))

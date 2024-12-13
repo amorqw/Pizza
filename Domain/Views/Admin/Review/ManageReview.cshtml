@@ -1,16 +1,16 @@
-@model IEnumerable<Core.Models.Pizzas>
+@model IEnumerable<Core.Models.Reviews>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Pizzas</title>
+    <title>Manage Review</title>
     <link href="~/css/admin.css" rel="stylesheet" />
 </head>
 <body>
 <header>
-    <h1>Manage Pizzas</h1>
+    <h1>Manage Review</h1>
     <nav class="admin-menu">
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
         <a href="/Admin/ManageStaffs">Manage Staffs</a>
@@ -21,21 +21,22 @@
 </header>
 
 <main>
-    <a href="/Admin/AddPizza" class="btn">Add New Pizza</a>
-    <div class="pizza-cards-container">
+    <a href="/Admin/AddReview" class="btn">Добавить новый отзыв</a>
+    <div class="cards-container">
         @if (Model != null && Model.Any())
         {
-            foreach (var pizza in Model)
+            foreach (var review in Model)
             {
                 <div class="pizza-card">
-                    <h3>@pizza.NamePizza</h3>
-                    <p><strong>Description:</strong> @pizza.Description</p>
-                    <p><strong>Price:</strong> $@pizza.Price</p>
-                    <p><strong>Size:</strong> @pizza.Size</p>
-                    <p><strong>Available:</strong> @(pizza.Available ? "Yes" : "No")</p>
+                    <h3>id: @review.ReviewId</h3>
+                    <p><strong>userid</strong> @review.UserId</p>
+                    <p><strong>pizzaid</strong> @review.PizzaId</p>
+                    <p><strong>Рейтинг</strong> @review.Rating</p>
+                    <p><strong>Отзыв</strong> @review.Comment</p>
+                    <p><strong>Дата отзыва</strong> @review.ReviewDate</p>
                     <div class="pizza-actions">
-                        <a href="/Admin/EditPizza/@pizza.PizzaId" class="btn">Edit</a>
-                        <form action="/Admin/DeletePizza/@pizza.PizzaId" method="post" style="display:inline;">
+                        <a href="/Admin/EditStaff/@review.ReviewId" class="btn">Edit</a>
+                        <form action="/Admin/DeleteStaff/@review.ReviewId" method="post" style="display:inline;">
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
 
@@ -45,7 +46,7 @@
         }
         else
         {
-            <p>No pizzas found.</p>
+            <p>Отзывы не найдены</p>
         }
     </div>
 </main>

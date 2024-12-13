@@ -1,0 +1,58 @@
+@model IEnumerable<Core.Models.Users>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage User</title>
+    <link href="~/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Manage Pizzas</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManageStaffs">Manage Staffs</a>
+        <a href="/Admin/ManageReview">Manage Reviews</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+        <a href="/Admin/ManageUsers">Manage Users</a>
+    </nav>
+</header>
+
+<main>
+    <a href="/Admin/AddUser" class="btn">Добавить нового пользователя</a>
+    <div class="cards-container">
+        @if (Model != null && Model.Any())
+        {
+        foreach (var user in Model)
+        {
+        <div class="pizza-card">
+            <h3>id: @user.UserId</h3>
+            <p><strong>Имя</strong> @user.FirstName</p>
+            <p><strong>Фамилия</strong> @user.LastName</p>
+            <p><strong>Почта</strong> @user.Email</p>
+            <p><strong>Роль</strong> @user.Role</p>
+            <p><strong>Номер телефона</strong> @user.PhoneNumber</p>
+            <div class="pizza-actions">
+                <a href="/Admin/EditUser/@user.UserId" class="btn">Edit</a>
+                <form action="/Admin/DeleteUser/@user.UserId" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+
+            </div>
+        </div>
+        }
+        }
+        else
+        {
+        <p>Пользователи не найдены</p>
+        }
+    </div>
+</main>
+
+<footer>
+</footer>
+
+</body>
+</html>

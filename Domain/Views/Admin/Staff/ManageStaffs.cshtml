@@ -1,0 +1,58 @@
+@model IEnumerable<Core.Models.Staff>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Staffs</title>
+    <link href="~/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Manage Pizzas</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManageStaffs">Manage Staffs</a>
+        <a href="/Admin/ManageReview">Manage Reviews</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+        <a href="/Admin/ManageUsers">Manage Users</a>
+    </nav>
+</header>
+
+<main>
+    <a href="/Admin/AddStaff" class="btn">Добавить нового сотрудника</a>
+    <div class="cards-container">
+        @if (Model != null && Model.Any())
+        {
+        foreach (var staff in Model)
+        {
+        <div class="pizza-card">
+            <h3>id: @staff.StaffId</h3>
+            <p><strong>Имя</strong> @staff.FirstName</p>
+            <p><strong>Фамилия</strong> @staff.LastName</p>
+            <p><strong>Должность</strong> @staff.Position</p>
+            <p><strong>Дата найма</strong> @staff.HireDate</p>
+            <div class="pizza-actions">
+                <a href="/Admin/EditStaff/@staff.StaffId" class="btn">Edit</a>
+                <form action="/Admin/DeleteStaff/@staff.StaffId" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+
+            </div>
+        </div>
+        }
+        }
+        else
+        {
+        <p>Сотрудники не найдены</p>
+        }
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Pizza World Admin Panel</p>
+</footer>
+
+</body>
+</html>

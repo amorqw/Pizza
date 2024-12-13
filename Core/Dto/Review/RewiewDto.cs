@@ -1,9 +1,10 @@
 using Core.Models;
 
-namespace Core.Dto.Rewiew;
+namespace Core.Dto.Review;
 
-public class RewiewDto
+public class ReviewDto
 {
+    public int ReviewId { get; set; }
     public int PizzaId { get; set; }
     public Pizzas Pizza { get; set; } = null!;
     public int UserId { get; set; }

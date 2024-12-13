@@ -1,0 +1,47 @@
+@model Core.Dto.StaffDto
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить сотрудника</title>
+    <link href="~/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Добавить нового сотрудника</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManageIngredients">Manage Ingredients</a>
+        <a href="/Admin/ManageUsers">Manage Users</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+    </nav>
+</header>
+
+<main>
+    <form action="/Admin/AddStaff" method="post">
+        <div>
+            <label for="FirstName">Имя</label>
+            @Html.TextBoxFor(m => m.FirstName, new { @required = "required" })
+        </div>
+        <div>
+            <label for="LastName">Фамилия:</label>
+            @Html.TextAreaFor(m => m.LastName, new { @required = "required" })
+        </div>
+        <div>
+            <label for="Position">Должность:</label>
+            @Html.TextBoxFor(m => m.Position, new { @required = "required" })
+        </div>
+        
+        <button type="submit" class="btn">Добавить сотрудника</button>
+    </form>
+
+</main>
+
+<footer>
+    <p>&copy; 2024 Pizza World Admin Panel</p>
+</footer>
+
+</body>
+</html>

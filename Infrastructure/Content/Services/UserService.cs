@@ -16,33 +16,61 @@ public class UserService: IUser
     {
         _passwordHasher = passwordHasher;
     }
+
+    public async Task<IEnumerable<Users>> GetAllUsers()
+    {
+        using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+        {
+            await connection.OpenAsync();
+            return await connection.QueryAsync<Users>(@"select * from users");
+        }
+    }
     public async Task<Users> GetUser(int id )
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             connection.Open();
-            return await connection.QueryFirstOrDefaultAsync<Users>(@"select * from users where id = @id", new { id });
+            return await connection.QueryFirstOrDefaultAsync<Users>(
+                "SELECT * FROM Users WHERE UserId = @UserId", 
+                new { id }) ?? new Users();
         }
     }
 
-    public async Task<Users> UpdateUser(UpdateUserDto userDto,int id)
+    public async Task<Users> UpdateUser(UpdateUserDto userDto, int id)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
-            connection.Open();
-            string sql =
-                @"update users set FirstName = @FirstName, LastName = @LastName , Email = @Email, PhoneNumber=@PhoneNumber where UserId= @id return *";
-            return await connection.QueryFirstOrDefaultAsync<Users>(sql,userDto);
+            await connection.OpenAsync();
+            string sql = @"
+            UPDATE Users
+            SET  
+                FirstName = @FirstName,
+                LastName = @LastName,
+                Email = @Email,
+                PhoneNumber = @PhoneNumber
+            WHERE UserId = @UserId 
+            RETURNING *";
+        
+            return await connection.QueryFirstOrDefaultAsync<Users>(sql, new
+            {
+                UserId = id,
+                FirstName = userDto.FirstName,
+                LastName = userDto.LastName,
+                Email = userDto.Email,
+                PhoneNumber = userDto.PhoneNumber
+            });
         }
     }
+
 
     public async Task<bool> DeleteUser(int id)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
-            connection.Open();
-            string sql = @"delete from users where id = @id";
-            return await connection.ExecuteAsync(sql, new { id }) > 0;
+            await connection.OpenAsync();
+            string sql = "DELETE FROM Users WHERE UserId = @userid";
+            var result = await connection.ExecuteAsync(sql, new { UserId = id });
+            return result > 0;
         }
     }
 

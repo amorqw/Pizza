@@ -12,10 +12,10 @@ public class StaffService : IStaff
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
-            await connection.OpenAsync();
+            connection.Open();
             return await connection.QueryFirstOrDefaultAsync<Staff>(
                 "SELECT * FROM Staff WHERE StaffId = @StaffId", 
-                new { StaffId = id });
+                new { id }) ?? new Staff();
         }
     }
 

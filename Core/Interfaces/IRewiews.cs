@@ -4,6 +4,7 @@ namespace Core.Interfaces;
 
 public interface IReviews
 {
+    Task<IEnumerable<Reviews>> GetAllReviews();
     Task<Reviews?> GetReviewById(int reviewId); 
     Task<IEnumerable<Reviews>> GetReviewsByPizzaId(int pizzaId); 
     Task<IEnumerable<Reviews>> GetReviewsByUserId(int userId); 
