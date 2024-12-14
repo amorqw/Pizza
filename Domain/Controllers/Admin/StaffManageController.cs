@@ -26,7 +26,10 @@ namespace Pizza.Controllers.Admin
         [Route("Admin/EditStaff/{id}")]
         public async Task<IActionResult> EditStaff(int id)
         {
+            
             var staff = await _staffService.GetStaffById(id);
+            Console.WriteLine($"Requested StaffId: {id}");
+            Console.WriteLine($"Staff found: {staff?.StaffId} - {staff?.FirstName} {staff?.LastName}");
             if (staff == null)
             {
                 return NotFound();
@@ -37,8 +40,6 @@ namespace Pizza.Controllers.Admin
                 StaffId = staff.StaffId,
                 FirstName = staff.FirstName,
                 LastName = staff.LastName,
-                Position = staff.Position,
-                HireDate = staff.HireDate
             };
 
             return View("~/Views/Admin/Staff/EditStaff.cshtml", staffDto);
@@ -50,6 +51,7 @@ namespace Pizza.Controllers.Admin
         {
             if (ModelState.IsValid)
             {
+                staffDto.StaffId = id; 
                 var updateStaffs = await _staffService.UpdateStaff(staffDto, id);
                 if (updateStaffs != null)
                 {
@@ -57,11 +59,12 @@ namespace Pizza.Controllers.Admin
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Failed to update pizza.");
+                    ModelState.AddModelError(string.Empty, "Failed to update staff.");
                 }
             }
             return View("~/Views/Admin/Staff/EditStaff.cshtml");
         }
+
 
         [HttpGet]
         [Route("Admin/Addstaff")]
@@ -73,7 +76,7 @@ namespace Pizza.Controllers.Admin
 
         [HttpPost]
         [Route("Admin/AddStaff")]
-        public async Task<IActionResult> AddPizza(StaffDto staffDto)
+        public async Task<IActionResult> AddStafff(StaffDto staffDto)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +95,7 @@ namespace Pizza.Controllers.Admin
 
         [HttpPost]
         [Route("Admin/DeleteStaff/{id}")]
-        public async Task<IActionResult> DeletePizza(int id)
+        public async Task<IActionResult> DeleteStaff(int id)
         {
             var success = await _staffService.DeleteStaff(id);
             if (success)

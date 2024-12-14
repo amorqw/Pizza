@@ -12,27 +12,36 @@
 <header>
     <h1>Изменить сотрудника</h1>
     <nav class="admin-menu">
+        <a href="/Admin/ManagePizzerias">Manage Pizzerias</a>
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
-        <a href="/Admin/ManageIngredients">Manage Ingredients</a>
-        <a href="/Admin/ManageUsers">Manage Users</a>
+        <a href="/Admin/ManagePizzasAvailable">Manage Pizzerias</a>
+        <a href="/Admin/ManageStaffs">Manage Staffs</a>
+        <a href="/Admin/ManageReview">Manage Reviews</a>
         <a href="/Admin/ManageOrders">Manage Orders</a>
+        <a href="/Admin/ManageOrderItems">Manage OrderItems</a>
+        <a href="/Admin/ManageUser">Manage Users</a>
     </nav>
 </header>
 
 <main>
+    <h3>Editing Staff: @Model.StaffId </h3>
     <form action="/Admin/UpdateStaff/@Model.StaffId" method="post">
+        <input type="hidden" name="StaffId" value="@Model.StaffId" />
         <div>
-            <label for="Position">Должность:</label>
-            <input id="Position" name="Position" value="@Model.Position" required />
+            <label for="FirstName">Имя:</label>
+            <input id="FirstName" name="FirstName" value="@Model.FirstName" required />
         </div>
-        
-        
+        <div>
+            <label for="LastName">Фамилия:</label>
+            <input id="LastName" name="LastName" value="@Model.LastName" required />
+        </div>
+
         <button type="submit" class="btn">Сохранить</button>
     </form>
+
 </main>
 
 <footer>
-    <p>&copy; 2024 Pizza World Admin Panel</p>
 </footer>
 
 </body>

@@ -36,10 +36,10 @@ namespace Pizza.Controllers.Admin
             var userDto = new UpdateUserDto
             {
                 UserId = user.UserId,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
+                Name = user.Name,
+                SurName = user.SurName,
                 Email = user.Email,
-                PhoneNumber = user.PhoneNumber
+                Phone = user.Phone
             };
 
             return View("~/Views/Admin/User/EditUser.cshtml", userDto);

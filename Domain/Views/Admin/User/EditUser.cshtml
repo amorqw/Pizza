@@ -12,30 +12,34 @@
 <header>
     <h1>Изменить пользователя</h1>
     <nav class="admin-menu">
+        <a href="/Admin/ManagePizzerias">Manage Pizzerias</a>
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
-        <a href="/Admin/ManageIngredients">Manage Ingredients</a>
-        <a href="/Admin/ManageUsers">Manage Users</a>
+        <a href="/Admin/ManagePizzasAvailable">Manage Pizzerias</a>
+        <a href="/Admin/ManageStaffs">Manage Staffs</a>
+        <a href="/Admin/ManageReview">Manage Reviews</a>
         <a href="/Admin/ManageOrders">Manage Orders</a>
+        <a href="/Admin/ManageOrderItems">Manage OrderItems</a>
+        <a href="/Admin/ManageUser">Manage Users</a>
     </nav>
 </header>
 
 <main>
     <form action="/Admin/UpdateUser/@Model.UserId" method="post">
         <div>
-            <label for="FirstName">Имя:</label>
-            <input id="FirstName" name="FirstName" value="@Model.FirstName" required />
+            <label for="Name">Имя:</label>
+            <input id="Name" name="Name" value="@Model.Name" required />
         </div>
         <div>
-            <label for="LastName">Фамилия:</label>
-            <input id="LastName" name="LastName" value="@Model.LastName" required />
+            <label for="SurName">Фамилия:</label>
+            <input id="SurName" name="SurName" value="@Model.SurName" required />
         </div>
         <div>
             <label for="Email">Электронная почта:</label>
             <input id="Email" name="Email" type="email" value="@Model.Email" required />
         </div>
         <div>
-            <label for="PhoneNumber">Телефон:</label>
-            <input id="PhoneNumber" name="PhoneNumber" type="tel" value="@Model.PhoneNumber" required />
+            <label for="Phone">Телефон:</label>
+            <input id="Phone" name="Phone" type="tel" value="@Model.Phone" required />
         </div>
 
         <button type="submit" class="btn">Сохранить</button>

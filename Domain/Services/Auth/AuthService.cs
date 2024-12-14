@@ -18,7 +18,7 @@ namespace Pizza.Services.Auth
             _user = user;
             _passwordHasher = passwordHasher;
             _jwtProvider = jwtProvider;
-            _httpContextAccessor = httpContextAccessor;  // Используем IHttpContextAccessor
+            _httpContextAccessor = httpContextAccessor;  
         }
 
         public async Task<int> Register(string userName, string email, string password, string PhoneNumber)
@@ -26,13 +26,13 @@ namespace Pizza.Services.Auth
             var hashedPassword = _passwordHasher.Generate(password);
             var newUser = new Users
             {
-                LastName = userName,
+                SurName = userName,
                 Email = email,
                 Password = hashedPassword,
-                PhoneNumber = PhoneNumber
+                Phone = PhoneNumber
             };
 
-            return await _user.CreateUser(newUser); // Создаем пользователя в базе данных
+            return await _user.CreateUser(newUser); 
         }
 
         public async Task<string> Login(string email, string password)
@@ -44,7 +44,6 @@ namespace Pizza.Services.Auth
             }
             var token = _jwtProvider.GenerateToken(user);
             
-            // Используем IHttpContextAccessor для получения HttpContext
             var context = _httpContextAccessor.HttpContext;
             if (context != null)
             {
@@ -56,7 +55,7 @@ namespace Pizza.Services.Auth
 
         public async Task<int> CreateUser(Users user)
         {
-            return await _user.CreateUser(user); // Для обратной совместимости
+            return await _user.CreateUser(user); 
         }
     }
 }

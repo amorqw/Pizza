@@ -33,7 +33,7 @@ namespace Pizza.Controllers
 
             try
             {
-                await _authService.Register(request.LastName, request.Email, request.Password, request.PhoneNumber);
+                await _authService.Register(request.SurName, request.Email, request.Password, request.Phone);
                 return RedirectToAction("Index", "Login");
             }
             catch (Exception ex)

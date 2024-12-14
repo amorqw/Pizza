@@ -12,9 +12,9 @@ public class AuthMapper
         {
             Email = model.Email!,
             Password = model.Password!,
-            LastName = model.LastName,
-            FirstName = model.FirstName,
-            PhoneNumber = model.PhoneNumber
+            SurName = model.SurName,
+            Name = model.Name,
+            Phone = model.Phone
         };
     }
 }

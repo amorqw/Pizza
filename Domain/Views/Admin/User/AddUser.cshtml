@@ -12,22 +12,26 @@
 <header>
     <h1>Добавить нового Пользователя</h1>
     <nav class="admin-menu">
+        <a href="/Admin/ManagePizzerias">Manage Pizzerias</a>
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
-        <a href="/Admin/ManageIngredients">Manage Ingredients</a>
-        <a href="/Admin/ManageUsers">Manage Users</a>
+        <a href="/Admin/ManagePizzasAvailable">Manage Pizzerias</a>
+        <a href="/Admin/ManageStaffs">Manage Staffs</a>
+        <a href="/Admin/ManageReview">Manage Reviews</a>
         <a href="/Admin/ManageOrders">Manage Orders</a>
+        <a href="/Admin/ManageOrderItems">Manage OrderItems</a>
+        <a href="/Admin/ManageUser">Manage Users</a>
     </nav>
 </header>
 
 <main>
     <form action="/Admin/AddUser" method="post">
         <div>
-            <label for="FirstName">Имя</label>
-            @Html.TextBoxFor(m => m.FirstName, new { @required = "required" })
+            <label for="Name">Имя</label>
+            @Html.TextBoxFor(m => m.Name, new { @required = "required" })
         </div>
         <div>
-            <label for="LastName">Фамилия:</label>
-            @Html.TextAreaFor(m => m.LastName, new { @required = "required" })
+            <label for="SurName">Фамилия:</label>
+            @Html.TextAreaFor(m => m.SurName, new { @required = "required" })
         </div>
         <div>
             <label for="Email">Почта:</label>
@@ -38,13 +42,14 @@
             @Html.TextBoxFor(m => m.Role, new { @required = "required" })
         </div>
         <div>
+            <label for="Phone">Номер телефона:</label>
+            @Html.TextBoxFor(m => m.Phone, new { @required = "required" })
+        </div>
+        <div>
             <label for="Password">Пароль:</label>
             @Html.TextBoxFor(m => m.Password, new { @required = "required" })
         </div>
-        <div>
-            <label for="PhoneNumber">Должность:</label>
-            @Html.TextBoxFor(m => m.PhoneNumber, new { @required = "required" })
-        </div>
+        
         
         <button type="submit" class="btn">Добавить Пользователя</button>
     </form>

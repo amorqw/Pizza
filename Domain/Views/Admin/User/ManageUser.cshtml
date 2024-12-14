@@ -12,11 +12,14 @@
 <header>
     <h1>Manage Pizzas</h1>
     <nav class="admin-menu">
+        <a href="/Admin/ManagePizzerias">Manage Pizzerias</a>
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManagePizzasAvailable">Manage Pizzerias</a>
         <a href="/Admin/ManageStaffs">Manage Staffs</a>
         <a href="/Admin/ManageReview">Manage Reviews</a>
         <a href="/Admin/ManageOrders">Manage Orders</a>
-        <a href="/Admin/ManageUsers">Manage Users</a>
+        <a href="/Admin/ManageOrderItems">Manage OrderItems</a>
+        <a href="/Admin/ManageUser">Manage Users</a>
     </nav>
 </header>
 
@@ -29,11 +32,11 @@
         {
         <div class="pizza-card">
             <h3>id: @user.UserId</h3>
-            <p><strong>Имя</strong> @user.FirstName</p>
-            <p><strong>Фамилия</strong> @user.LastName</p>
+            <p><strong>Имя</strong> @user.Name</p>
+            <p><strong>Фамилия</strong> @user.SurName</p>
             <p><strong>Почта</strong> @user.Email</p>
             <p><strong>Роль</strong> @user.Role</p>
-            <p><strong>Номер телефона</strong> @user.PhoneNumber</p>
+            <p><strong>Номер телефона</strong> @user.Phone</p>
             <div class="pizza-actions">
                 <a href="/Admin/EditUser/@user.UserId" class="btn">Edit</a>
                 <form action="/Admin/DeleteUser/@user.UserId" method="post" style="display:inline;">

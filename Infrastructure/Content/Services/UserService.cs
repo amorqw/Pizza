@@ -30,9 +30,9 @@ public class UserService: IUser
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             connection.Open();
-            return await connection.QueryFirstOrDefaultAsync<Users>(
+            return await connection.QuerySingleOrDefaultAsync<Users>(
                 "SELECT * FROM Users WHERE UserId = @UserId", 
-                new { id }) ?? new Users();
+                new { UserId = id }) ?? new Users();
         }
     }
 
@@ -44,20 +44,20 @@ public class UserService: IUser
             string sql = @"
             UPDATE Users
             SET  
-                FirstName = @FirstName,
-                LastName = @LastName,
+                Name = @Name,
+                SurName = @SurName,
                 Email = @Email,
-                PhoneNumber = @PhoneNumber
+                Phone = @Phone
             WHERE UserId = @UserId 
             RETURNING *";
         
             return await connection.QueryFirstOrDefaultAsync<Users>(sql, new
             {
                 UserId = id,
-                FirstName = userDto.FirstName,
-                LastName = userDto.LastName,
+                Name = userDto.Name,
+                SurName = userDto.SurName,
                 Email = userDto.Email,
-                PhoneNumber = userDto.PhoneNumber
+                Phone = userDto.Phone
             });
         }
     }
@@ -89,8 +89,8 @@ public class UserService: IUser
         {
             connection.Open();
             string sql = @"
-                INSERT INTO users (FirstName, LastName, Email, Role, Password, PhoneNumber)
-                VALUES (@FirstName, @LastName, @Email, @Role, @Password, @PhoneNumber)";
+                INSERT INTO users (Name, SurName, Email, Role, Password, Phone)
+                VALUES (@name, @Surname, @Email, @Role, @Password, @Phone)";
             return await connection.ExecuteAsync(sql, user);
         }
     }
