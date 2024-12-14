@@ -14,7 +14,7 @@
     <nav class="admin-menu">
         <a href="/Admin/ManagePizzerias">Manage Pizzerias</a>
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
-        <a href="/Admin/ManagePizzasAvailable">Manage Pizzerias</a>
+        <a href="/Admin/ManagePizzasAvailable">Manage PizzasAvailable</a>
         <a href="/Admin/ManageStaffs">Manage Staffs</a>
         <a href="/Admin/ManageReview">Manage Reviews</a>
         <a href="/Admin/ManageOrders">Manage Orders</a>
@@ -26,8 +26,8 @@
 <main>
     <form action="/Admin/AddPizza" method="post">
         <div>
-            <label for="NamePizza">Name:</label>
-            @Html.TextBoxFor(m => m.NamePizza, new { @required = "required" })
+            <label for="Title">Title:</label>
+            @Html.TextBoxFor(m => m.Title, new { @required = "required" })
         </div>
         <div>
             <label for="Description">Description:</label>
@@ -42,8 +42,8 @@
             @Html.TextBoxFor(m => m.Size, new { @required = "required" })
         </div>
         <div>
-            <label for="Available">Available:</label>
-            @Html.DropDownListFor(m => m.Available, new SelectList(new[] { true, false }), new { @required = "required" })
+            <label for="Receipt">Receipt:</label>
+            @Html.TextBoxFor(m => m.Receipt, new { @required = "required" })
         </div>
         <button type="submit" class="btn">Add Pizza</button>
     </form>

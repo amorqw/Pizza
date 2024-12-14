@@ -34,11 +34,11 @@ namespace Pizza.Controllers.Admin
             var pizzaDto = new PizzaDto
             {
                 PizzaId = pizza.PizzaId,
-                NamePizza = pizza.NamePizza,
+                Title = pizza.Title,
                 Description = pizza.Description,
                 Price = pizza.Price,
                 Size = pizza.Size,
-                Available = pizza.Available
+                Receipt = pizza.Receipt
             };
 
             return View("~/Views/Admin/Pizza/EditPizza.cshtml", pizzaDto);

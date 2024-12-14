@@ -26,8 +26,8 @@
 <main>
     <form action="/Admin/UpdatePizza/@Model.PizzaId" method="post">
         <div>
-            <label for="NamePizza">Name:</label>
-            <input type="text" id="NamePizza" name="NamePizza" value="@Model.NamePizza" required />
+            <label for="Title">Title:</label>
+            <input type="text" id="Title" name="Title" value="@Model.Title" required />
         </div>
         <div>
             <label for="Description">Description:</label>
@@ -42,11 +42,8 @@
             <input type="text" id="Size" name="Size" value="@Model.Size" required />
         </div>
         <div>
-            <label for="Available">Available:</label>
-            <select id="Available" name="Available">
-                <option value="true" @(Model.Available ? "selected" : "")>Yes</option>
-                <option value="false" @(Model.Available ? "" : "selected")>No</option>
-            </select>
+            <label for="Receipt">Receipt:</label>
+            <input type="text" id="Receipt" name="Receipt" value="@Model.Receipt" required />
         </div>
         <button type="submit" class="btn">Save Changes</button>
     </form>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "x47ka9iSR1R12VEf3NKiKmlmlp1enGE6CQvmAKO1nB0=",
+  "Hash": "fO8lKn3TYL37zPQcgUjSiQPwbXK4HAg+El2RTkXllAI=",
   "Source": "Domain",
   "BasePath": "_content/Domain",
   "Mode": "Default",
@@ -8,19 +8,19 @@
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "Domain/wwwroot",
+      "Name": "Domain\\wwwroot",
       "Source": "Domain",
-      "ContentRoot": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/admin.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\admin.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/admin.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/admin.css"
+      "OriginalItemSpec": "wwwroot\\css\\admin.css"
     },
     {
-      "Identity": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/home.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\home.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/home.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/home.css"
+      "OriginalItemSpec": "wwwroot\\css\\home.css"
     },
     {
-      "Identity": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/login.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\login.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/login.css",
       "AssetKind": "All",
@@ -71,13 +71,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/login.css"
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
-      "Identity": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/registration.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\registration.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/registration.css",
       "AssetKind": "All",
@@ -90,7 +90,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/registration.css"
+      "OriginalItemSpec": "wwwroot\\css\\registration.css"
     }
   ]
 }

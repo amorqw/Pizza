@@ -23,6 +23,10 @@
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Views\Admin\ManagePizzas\ManagePizzas.cshtml" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Views\Admin\Pizzeria\" />
+    </ItemGroup>
   
 
 </Project>
