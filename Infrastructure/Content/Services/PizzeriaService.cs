@@ -1,5 +1,4 @@
-using System.Data.Common;
-using Core.Dto.Pizza;
+
 using Dapper;
 using Core.Interfaces;
 using Core.Models;
@@ -7,19 +6,13 @@ using Npgsql;
 
 namespace Infrastructure.Content.Services;
 
-public class PizzeriaService  //IPizzeria
+public class PizzeriaService : IPizzeria
 {
     public async Task<IEnumerable<Pizzeria>> GetAllPizzerias()
     {
         const string query = @"
-                SELECT 
-                    PizzaId, 
-                    Title, 
-                    Description, 
-                    Price, 
-                    Size, 
-                    Receipt
-                FROM Pizzas";
+                SELECT *
+                FROM Pizzerias";
 
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
@@ -48,20 +41,20 @@ public class PizzeriaService  //IPizzeria
         {
             await connection.OpenAsync();
 
-            string sql = @"insert into Pizzas (Title, Description, Price, Size, Receipt) 
-                       values (@Title, @Description, @Price, @Size, @Receipt) 
-                       returning PizzaId";  
+            string sql = @"insert into Pizzerias (Title, Rating, Address, Courieramount) 
+                       values (@Title, @Rating, @Address, @Courieramount) 
+                       returning PizzeriaId";  
 
-            var newPizzaId = await connection.QueryFirstOrDefaultAsync<int>(sql, pizzeria);
+            var newPizzeriaId = await connection.QueryFirstOrDefaultAsync<int>(sql, pizzeria);
 
-            if (newPizzaId > 0)
+            if (newPizzeriaId > 0)
             {
                 
-                string selectSql = @"select PizzaId, Title, Description, Price, Size, Receipt 
-                                 from Pizzas 
-                                 where PizzaId = @PizzaId";
+                string selectSql = @"select PizzeriaId, Title, Rating, Address, Courieramount
+                                 from Pizzerias
+                                 where PizzeriaId = @PizzeriaId";
 
-                return await connection.QueryFirstOrDefaultAsync<Pizzeria>(selectSql, new { Id = newPizzaId });
+                return await connection.QueryFirstOrDefaultAsync<Pizzeria>(selectSql, new { Id = newPizzeriaId });
             }
 
             return null;
@@ -69,42 +62,39 @@ public class PizzeriaService  //IPizzeria
     }
 
 
-    /* public async Task<Pizzeria> UpdatePizzeria(int pizzaId, Pizzeria pizzeria)
+    public async Task<Pizzeria> UpdatePizzeria(int pizzeriaId, Pizzeria pizzeria)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             connection.Open();
             string sql = @"
-            UPDATE Pizzas
-            SET Title = @Title, Description = @Description, Price = @Price, Size = @Size, Receipt = @Receipt
-            WHERE PizzaId = @PizzaId
+            UPDATE Pizzerias
+            SET Title = @Title, Rating = @Rating, Address = @Address, Courieramount = @Courieramount
+            WHERE PizzeriaId = @PizzeriaId
             RETURNING *";
-            return await connection.QueryFirstOrDefaultAsync<Pizzeria>(sql, pizzeria); // ПОТОМ УБРАТЬ ЭТУ СТРОКУ
-
-            return await connection.QueryFirstOrDefaultAsync<Pizzas>(sql, new
+            return await connection.QueryFirstOrDefaultAsync<Pizzeria>(sql, new
              {
-                 PizzaId = pizzaId,
+                 PizzeriaId = pizzeriaId,
                  pizzeria.Title,
-                 pizzeria.Description,
-                 pizzeria.Price,
-                 pizzeria.Size,
-                 pizzeria.Receipt
+                 pizzeria.Address,
+                 pizzeria.Rating,
+                 pizzeria.CourierAmount
              });
          }
-    }*/
+    }
 
 
-        /*public async Task<bool> DeletePizzeria(int pizzeriaId)
+        public async Task<bool> DeletePizzeria(int pizzeriaId)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             connection.Open();
-            var pizza = await connection.QueryFirstOrDefaultAsync<Pizzas>(
-                "select * from pizzas where PizzaId = @PizzaId", new { PizzaId = pizzeriaId });
+            var pizza = await connection.QueryFirstOrDefaultAsync<Pizzeria>(
+                "select * from pizzerias where PizzeriaId = @PizzeriaId", new { PizzeriaId = pizzeriaId });
             if (pizza == null)
                 return false;
-            string sql = @"delete from Pizzas where PizzaId = @PizzaId";
-            return await connection.ExecuteAsync(sql, new { PizzaId = pizzeriaId }) > 0;
+            string sql = @"delete from Pizzerias where PizzeriaId = @PizzeriaId";
+            return await connection.ExecuteAsync(sql, new { PizzeriaId = pizzeriaId }) > 0;
         }
-    }*/
+    }
 }

@@ -364,28 +364,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kirill\\.nuget\\packages\\": {}
+    "/Users/amorqww/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Core\\Core.csproj",
+      "projectUniqueName": "/Users/amorqww/RiderProjects/PizzaViewModel/Core/Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\kirill\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Core\\obj\\",
+      "projectPath": "/Users/amorqww/RiderProjects/PizzaViewModel/Core/Core.csproj",
+      "packagesPath": "/Users/amorqww/.nuget/packages/",
+      "outputPath": "/Users/amorqww/RiderProjects/PizzaViewModel/Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kirill\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/amorqww/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://pkgs.dev.azure.com/tgbots/Telegram.Bot/_packaging/release/nuget/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
@@ -433,7 +430,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

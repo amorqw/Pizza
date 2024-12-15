@@ -1,16 +1,16 @@
-@model Core.Dto.UpdateUserDto
+@model Core.Models.Pizzeria
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Изменить пользователя</title>
+    <title>Добавить Пиццерию</title>
     <link href="~/css/admin.css" rel="stylesheet" />
 </head>
 <body>
 <header>
-    <h1>Изменить пользователя</h1>
+    <h1>Добавить новую Пиццерию</h1>
     <nav class="admin-menu">
         <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
@@ -24,26 +24,27 @@
 </header>
 
 <main>
-    <form action="/Admin/UpdateUser/@Model.UserId" method="post">
+    <form action="/Admin/AddPizzeria" method="post">
         <div>
-            <label for="Name">Имя:</label>
-            <input id="Name" name="Name" value="@Model.Name" required />
+            <label for="Title">Название</label>
+            @Html.TextBoxFor(m => m.Title, new { @required = "required" })
         </div>
         <div>
-            <label for="SurName">Фамилия:</label>
-            <input id="SurName" name="SurName" value="@Model.SurName" required />
+            <label for="Rating">Рейтинг:</label>
+            @Html.TextAreaFor(m => m.Rating, new { @required = "required" })
         </div>
         <div>
-            <label for="Email">Электронная почта:</label>
-            <input id="Email" name="Email" type="email" value="@Model.Email" required />
+            <label for="Address">Адрес:</label>
+            @Html.TextAreaFor(m => m.Address, new { @required = "required" })
         </div>
         <div>
-            <label for="Phone">Телефон:</label>
-            <input id="Phone" name="Phone" type="tel" value="@Model.Phone" required />
+            <label for="CourierAmount">Количество курьеров:</label>
+            @Html.TextAreaFor(m => m.CourierAmount, new { @required = "required" })
         </div>
-
-        <button type="submit" class="btn">Сохранить</button>
+        
+        <button type="submit" class="btn">Добавить пиццерию</button>
     </form>
+
 </main>
 
 <footer>

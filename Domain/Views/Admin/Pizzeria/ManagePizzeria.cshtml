@@ -1,16 +1,16 @@
-@model IEnumerable<Core.Models.Staff>
+@model IEnumerable<Core.Models.Pizzeria>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Управление курьерами</title>
+    <title>Управление pizzerias</title>
     <link href="~/css/admin.css" rel="stylesheet" />
 </head>
 <body>
 <header>
-    <h1>Управление курьерами</h1>
+    <h1>Управление pizzerias</h1>
     <nav class="admin-menu">
         <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
@@ -24,21 +24,21 @@
 </header>
 
 <main>
-    <a href="/Admin/AddStaff" class="btn">Добавить нового курьера</a>
+    <a href="/Admin/AddPizzeria" class="btn">Добавить новую пиццерию</a>
     <div class="pizza-cards-container">
         @if (Model != null && Model.Any())
         {
-        foreach (var staff in Model)
+        foreach (var pizzeria in Model)
         {
         <div class="pizza-card">
-            <h3>id: @staff.StaffId</h3>
-            <p><strong>Имя</strong> @staff.FirstName</p>
-            <p><strong>Фамилия</strong> @staff.LastName</p>
-            <p><strong>Дата найма</strong> @staff.HireDate</p>
+            <h3> @pizzeria.Title</h3>
+            <p><strong>Рейтинг</strong> @pizzeria.Rating</p>
+            <p><strong>Адрес</strong> @pizzeria.Address</p>
+            <p><strong>Количество курьеров</strong> @pizzeria.CourierAmount</p>
             <div class="pizza-actions">
-                <a href="/Admin/EditStaff/@staff.StaffId" class="btn">Edit</a>
+                <a href="/Admin/EditPizzeria/@pizzeria.PizzeriaId" class="btn">Edit</a>
 
-                <form action="/Admin/DeleteStaff/@staff.StaffId" method="post" style="display:inline;">
+                <form action="/Admin/DeletePizzeria/@pizzeria.PizzeriaId" method="post" style="display:inline;">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </div>
@@ -47,7 +47,7 @@
         }
         else
         {
-        <p>Курьеры не найдены</p>
+        <p>Пиццерии не найдены</p>
         }
     </div>
 </main>

@@ -1,16 +1,16 @@
-@model Core.Dto.StaffDto
+@model Core.Models.Pizzeria
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Изменить сотрудника</title>
+    <title>Изменить пиццерию</title>
     <link href="~/css/admin.css" rel="stylesheet" />
 </head>
 <body>
 <header>
-    <h1>Изменить сотрудника</h1>
+    <h1>Изменить пиццерию</h1>
     <nav class="admin-menu">
         <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
@@ -24,16 +24,22 @@
 </header>
 
 <main>
-    <h3>Editing Staff: @Model.StaffId </h3>
-    <form action="/Admin/UpdateStaff/@Model.StaffId" method="post">
-        <input type="hidden" name="StaffId" value="@Model.StaffId" />
+    <form action="/Admin/UpdatePizzeria/@Model.PizzeriaId" method="post">
         <div>
-            <label for="FirstName">Имя:</label>
-            <input id="FirstName" name="FirstName" value="@Model.FirstName" required />
+            <label for="Title">Имя:</label>
+            <input id="Title" name="Title" value="@Model.Title" required />
         </div>
         <div>
-            <label for="LastName">Фамилия:</label>
-            <input id="LastName" name="LastName" value="@Model.LastName" required />
+            <label for="Rating">Рейтинг:</label>
+            <input id="Rating" name="Rating" value="@Model.Rating" required />
+        </div>
+        <div>
+            <label for="Address">Адрес:</label>
+            <input id="Address" name="Address" value="@Model.Address" required />
+        </div>
+        <div>
+            <label for="CourierAmount">Количество курьеров:</label>
+            <input id="CourierAmount" name="CourierAmount" value="@Model.CourierAmount" required />
         </div>
 
         <button type="submit" class="btn">Сохранить</button>
