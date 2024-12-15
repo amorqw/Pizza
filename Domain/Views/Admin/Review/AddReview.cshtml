@@ -1,0 +1,56 @@
+@model Core.Models.Reviews
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить Отзыв</title>
+    <link href="~/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Добавить новый отзыв</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManagePizzasAvailable">Manage PizzasAvailable</a>
+        <a href="/Admin/ManageStaffs">Manage Staffs</a>
+        <a href="/Admin/ManageReview">Manage Reviews</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+        <a href="/Admin/ManageOrderItems">Manage OrderItems</a>
+        <a href="/Admin/ManageUser">Manage Users</a>
+    </nav>
+</header>
+
+<main>
+    <form action="/Admin/AddReview" method="post">
+        <div>
+            <label for="PizzaId">ID Пиццы:</label>
+            @Html.TextBoxFor(m => m.PizzaId, new { @required = "required" })
+        </div>
+        <div>
+            <label for="UserId">ID Пользователя:</label>
+            @Html.TextBoxFor(m => m.UserId, new { @required = "required" })
+        </div>
+        <div>
+            <label for="OrderId">ID Заказа:</label>
+            @Html.TextBoxFor(m => m.OrderId, new { @required = "required" })
+        </div>
+        <div>
+            <label for="Rating">Рейтинг (0-5):</label>
+            @Html.TextBoxFor(m => m.Rating, new { @required = "required", @type = "number", @min = "0", @max = "5", @step = "1" })
+        </div>
+        <div>
+            <label for="Comment">Комментарий:</label>
+            @Html.TextAreaFor(m => m.Comment, new { @required = "required", rows = "4", cols = "50" })
+        </div>
+        <button type="submit" class="btn">Добавить отзыв</button>
+    </form>
+</main>
+
+<footer>
+</footer>
+
+</body>
+</html>

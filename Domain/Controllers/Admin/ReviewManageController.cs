@@ -1,112 +1,88 @@
-using Core.Dto;
 using Microsoft.AspNetCore.Mvc;
-using Core.Dto.Pizza;
-using Core.Dto.Review;
 using Core.Interfaces;
 using Core.Models;
 
-namespace Pizza.Controllers.Admin
+namespace Pizza.Controllers.Admin;
+
+public class ReviewManageController : Controller
 {
-    public class ReviewManageController : Controller
+    private readonly IReviews _reviewsService;
+
+    public ReviewManageController(IReviews reviewsService)
     {
-        private readonly IReviews _reviewsService;
+        _reviewsService = reviewsService;
+    }
 
-        public ReviewManageController(IReviews reviewsService)
+    [HttpGet]
+    [Route("Admin/ManageReview")]
+    public async Task<IActionResult> ManageReview()
+    {
+        var reviews = await _reviewsService.GetAllReviews();
+        return View("~/Views/Admin/Review/ManageReview.cshtml", reviews);
+    }
+
+    [HttpGet]
+    [Route("Admin/EditReview")]
+    public async Task<IActionResult> EditReview(int pizzaId, int userId, int orderId)
+    {
+        var review = await _reviewsService.GetReview(pizzaId, userId, orderId);
+        if (review == null)
         {
-            _reviewsService = reviewsService;
+            return NotFound();
         }
 
-        [HttpGet]
-        [Route("Admin/ManageReview")]
-        public async Task<IActionResult> ManageReview()
+        return View("~/Views/Admin/Review/EditReview.cshtml", review);
+    }
+
+    [HttpPost]
+    [Route("Admin/UpdateReview")]
+    public async Task<IActionResult> UpdateReview(Reviews review)
+    {
+        if (ModelState.IsValid)
         {
-            var reviews = await _reviewsService.GetAllReviews();
-            return View("~/Views/Admin/Review/ManageReview.cshtml", reviews);
-        }
-
-        [HttpGet]
-        [Route("Admin/EditReview/{id}")]
-        public async Task<IActionResult> EditReview(int id)
-        {
-            var review = await _reviewsService.GetReviewById(id);
-            if (review == null)
-            {
-                return NotFound();
-            }
-
-            var reviewDto = new ReviewDto()
-            {
-                 
-                 ReviewId = review.ReviewId,
-                PizzaId = review.PizzaId,
-                UserId = review.UserId,
-                Comment = review.Comment,
-                Rating = review.Rating,
-            };
-
-            return View("~/Views/Admin/Review/EditReview.cshtml", reviewDto);
-        }
-
-        [HttpPost]
-        [Route("Admin/UpdateReview/{id}")]
-        public async Task<IActionResult> UpdateReview(Reviews staffDto, int id)
-        {
-            if (ModelState.IsValid)
-            {
-                var updateStaffs = await _reviewsService.UpdateReview(staffDto);
-                if (updateStaffs != null)
-                {
-                    return RedirectToAction("ManageReview");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Failed to update pizza.");
-                }
-            }
-            return View("~/Views/Admin/Review/EditReview.cshtml");
-        }
-
-        [HttpGet]
-        [Route("Admin/AddRevview")]
-        public IActionResult AddReview()
-        {
-            var pizzaDto = new PizzaDto();  
-            return View("~/Views/Admin/Review/AddReview.cshtml"); 
-        }
-
-        [HttpPost]
-        [Route("Admin/AddReview")]
-        public async Task<IActionResult> AddReview(Reviews staffDto)
-        {
-            if (ModelState.IsValid)
-            {
-                var newStaff = await _reviewsService.AddReview(staffDto);
-                if (newStaff != null)
-                {
-                    return RedirectToAction("ManageReview");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Failed to add staff");
-                }
-            }
-            return View("~/Views/Admin/Review/AddReview.cshtml");
-        }
-
-        [HttpPost]
-        [Route("Admin/DeleteReview/{id}")]
-        public async Task<IActionResult> DeletePizza(int id)
-        {
-            var success = await _reviewsService.DeleteReview(id);
+            var success = await _reviewsService.UpdateReview(review);
             if (success)
             {
                 return RedirectToAction("ManageReview");
             }
-            else
+            ModelState.AddModelError(string.Empty, "Failed to update review.");
+        }
+        return View("~/Views/Admin/Review/EditReview.cshtml");
+    }
+
+    [HttpPost]
+    [Route("Admin/DeleteReview")]
+    public async Task<IActionResult> DeleteReview(int pizzaId, int userId, int orderId)
+    {
+        var success = await _reviewsService.DeleteReview(pizzaId, userId, orderId);
+        if (success)
+        {
+            return RedirectToAction("ManageReview");
+        }
+        ModelState.AddModelError(string.Empty, "Failed to delete review.");
+        return RedirectToAction("ManageReview");
+    }
+
+    [HttpGet]
+    [Route("Admin/AddReview")]
+    public IActionResult AddReview()
+    {
+        return View("~/Views/Admin/Review/AddReview.cshtml");
+    }
+
+    [HttpPost]
+    [Route("Admin/AddReview")]
+    public async Task<IActionResult> AddReview(Reviews review)
+    {
+        if (ModelState.IsValid)
+        {
+            var success = await _reviewsService.AddReview(review);
+            if (success)
             {
-                ModelState.AddModelError(string.Empty, "Failed to delete pizza");
                 return RedirectToAction("ManageReview");
             }
+            ModelState.AddModelError(string.Empty, "Failed to add review.");
         }
+        return View("~/Views/Admin/Review/AddReview.cshtml");
     }
 }

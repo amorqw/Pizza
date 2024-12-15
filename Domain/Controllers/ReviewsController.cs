@@ -4,7 +4,7 @@ using Core.Interfaces;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    /*[Route("api/[controller]")]
     [ApiController]
     public class ReviewsController : ControllerBase
     {
@@ -78,4 +78,5 @@ namespace WebApi.Controllers
             return NoContent();
         }
     }
+    */
 }

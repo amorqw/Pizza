@@ -1,4 +1,3 @@
-using Core.Dto.Review;
 using Core.Interfaces;
 using Core.Models;
 using Dapper;
@@ -6,25 +5,26 @@ using Npgsql;
 
 namespace Infrastructure.Content.Services;
 
-public class ReviewsService : IReviews
+public class RewiewService : IReviews
 {
-
     public async Task<IEnumerable<Reviews>> GetAllReviews()
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             await connection.OpenAsync();
-            return await connection.QueryAsync<Reviews>("select * from reviews");
+            return await connection.QueryAsync<Reviews>("SELECT * FROM Reviews");
         }
     }
-    public async Task<Reviews?> GetReviewById(int reviewId)
+
+    public async Task<Reviews?> GetReview(int pizzaId, int userId, int orderId)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             await connection.OpenAsync();
             return await connection.QueryFirstOrDefaultAsync<Reviews>(
-                @"SELECT * FROM Reviews WHERE ReviewId = @ReviewId",
-                new { ReviewId = reviewId });
+                @"SELECT * FROM Reviews 
+                  WHERE PizzaId = @PizzaId AND UserId = @UserId AND OrderId = @OrderId",
+                new { PizzaId = pizzaId, UserId = userId, OrderId = orderId });
         }
     }
 
@@ -55,8 +55,8 @@ public class ReviewsService : IReviews
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             await connection.OpenAsync();
-            string sql = @"INSERT INTO Reviews (PizzaId, UserId, Rating, Comment, ReviewDate)
-                           VALUES (@PizzaId, @UserId, @Rating, @Comment, @ReviewDate)";
+            string sql = @"INSERT INTO Reviews (PizzaId, UserId, OrderId, Rating, Comment, ReviewDate)
+                           VALUES (@PizzaId, @UserId, @OrderId, @Rating, @Comment, @ReviewDate)";
             var result = await connection.ExecuteAsync(sql, review);
             return result > 0;
         }
@@ -68,24 +68,23 @@ public class ReviewsService : IReviews
         {
             await connection.OpenAsync();
             string sql = @"UPDATE Reviews
-                           SET PizzaId = @PizzaId,
-                               UserId = @UserId,
-                               Rating = @Rating,
+                           SET Rating = @Rating,
                                Comment = @Comment,
                                ReviewDate = @ReviewDate
-                           WHERE ReviewId = @ReviewId";
+                           WHERE PizzaId = @PizzaId AND UserId = @UserId AND OrderId = @OrderId";
             var result = await connection.ExecuteAsync(sql, review);
             return result > 0;
         }
     }
 
-    public async Task<bool> DeleteReview(int reviewId)
+    public async Task<bool> DeleteReview(int pizzaId, int userId, int orderId)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             await connection.OpenAsync();
-            string sql = "DELETE FROM Reviews WHERE ReviewId = @ReviewId";
-            var result = await connection.ExecuteAsync(sql, new { ReviewId = reviewId });
+            string sql = @"DELETE FROM Reviews 
+                           WHERE PizzaId = @PizzaId AND UserId = @UserId AND OrderId = @OrderId";
+            var result = await connection.ExecuteAsync(sql, new { PizzaId = pizzaId, UserId = userId, OrderId = orderId });
             return result > 0;
         }
     }

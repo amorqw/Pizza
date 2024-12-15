@@ -79,5 +79,7 @@ CREATE TABLE Reviews
 insert into couriers(FirstName, LastName)
 values (123, 123);
 insert into pizzas(title, description, price, size, receipt)
-values (1, 11, 111, 'large', 'https://open.spotify.com/')
+values (1, 11, 111, 'large', 'https://open.spotify.com/');
+insert into orders (userid,staffid,status,address,paymentmethod) values(1,1,12, 12,13);
+insert into reviews(pizzaid, userid, orderid, comment, rating) values(1,1,1,1,1)
 
