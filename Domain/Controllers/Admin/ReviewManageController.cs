@@ -1,3 +1,4 @@
+using Core.Dto.Review;
 using Microsoft.AspNetCore.Mvc;
 using Core.Interfaces;
 using Core.Models;
@@ -23,7 +24,7 @@ public class ReviewManageController : Controller
 
     [HttpGet]
     [Route("Admin/EditReview")]
-    public async Task<IActionResult> EditReview(int pizzaId, int userId, int orderId)
+    public async Task<IActionResult> EditReview([FromQuery] int pizzaId, [FromQuery] int userId, [FromQuery] int orderId)
     {
         var review = await _reviewsService.GetReview(pizzaId, userId, orderId);
         if (review == null)
@@ -34,9 +35,10 @@ public class ReviewManageController : Controller
         return View("~/Views/Admin/Review/EditReview.cshtml", review);
     }
 
+
     [HttpPost]
     [Route("Admin/UpdateReview")]
-    public async Task<IActionResult> UpdateReview(Reviews review)
+    public async Task<IActionResult> UpdateReview(ReviewDto review)
     {
         if (ModelState.IsValid)
         {
@@ -45,23 +47,25 @@ public class ReviewManageController : Controller
             {
                 return RedirectToAction("ManageReview");
             }
-            ModelState.AddModelError(string.Empty, "Failed to update review.");
+            ModelState.AddModelError(string.Empty, "Не удалось обновить отзыв.");
         }
         return View("~/Views/Admin/Review/EditReview.cshtml");
     }
 
+
     [HttpPost]
     [Route("Admin/DeleteReview")]
-    public async Task<IActionResult> DeleteReview(int pizzaId, int userId, int orderId)
+    public async Task<IActionResult> DeleteReview([FromQuery] int pizzaId, [FromQuery] int userId, [FromQuery] int orderId)
     {
         var success = await _reviewsService.DeleteReview(pizzaId, userId, orderId);
         if (success)
         {
             return RedirectToAction("ManageReview");
         }
-        ModelState.AddModelError(string.Empty, "Failed to delete review.");
+        ModelState.AddModelError(string.Empty, "Не удалось удалить отзыв.");
         return RedirectToAction("ManageReview");
     }
+
 
     [HttpGet]
     [Route("Admin/AddReview")]
@@ -72,7 +76,7 @@ public class ReviewManageController : Controller
 
     [HttpPost]
     [Route("Admin/AddReview")]
-    public async Task<IActionResult> AddReview(Reviews review)
+    public async Task<IActionResult> AddReview(ReviewDto review)
     {
         if (ModelState.IsValid)
         {

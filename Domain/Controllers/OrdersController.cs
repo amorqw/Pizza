@@ -3,7 +3,7 @@ using Core.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Pizza.Controllers
-{
+{/*
     [Route("api/[controller]")]
     [ApiController]
     public class OrdersController : ControllerBase
@@ -71,4 +71,5 @@ namespace Pizza.Controllers
             return NoContent();
         }
     }
+    */
 }

@@ -22,6 +22,18 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5QYW5lbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Admin/Order/AddOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vT3JkZXIvQWRkT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Admin/Order/EditOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vT3JkZXIvRWRpdE9yZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Admin/Order/ManageOrders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vT3JkZXIvTWFuYWdlT3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Admin/Pizza/AddPizza.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vUGl6emEvQWRkUGl6emEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

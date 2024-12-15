@@ -12,7 +12,7 @@
 <header>
     <h1>Manage Review</h1>
     <nav class="admin-menu">
-        <a href="/Admin/ManagePizzerias">Manage Pizzerias</a>
+        <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
         <a href="/Admin/ManagePizzasAvailable">Manage PizzasAvailable</a>
         <a href="/Admin/ManageStaffs">Manage Staffs</a>
@@ -25,24 +25,22 @@
 
 <main>
     <a href="/Admin/AddReview" class="btn">Добавить новый отзыв</a>
-    <div class="cards-container">
+    <div class="pizza-cards-container">
         @if (Model != null && Model.Any())
         {
             foreach (var review in Model)
             {
                 <div class="pizza-card">
-                    <h3>id: @review.ReviewId</h3>
                     <p><strong>userid</strong> @review.UserId</p>
                     <p><strong>OrderId</strong> @review.OrderId</p>
                     <p><strong>Рейтинг</strong> @review.Rating</p>
                     <p><strong>Отзыв</strong> @review.Comment</p>
                     <p><strong>Дата отзыва</strong> @review.ReviewDate</p>
                     <div class="pizza-actions">
-                        <a href="/Admin/EditStaff/@review.ReviewId" class="btn">Edit</a>
-                        <form action="/Admin/DeleteStaff/@review.ReviewId" method="post" style="display:inline;">
+                        <a href="/Admin/EditReview?pizzaId=@review.PizzaId&userId=@review.UserId&orderId=@review.OrderId" class="btn">Edit</a>
+                        <form action="/Admin/DeleteReview?pizzaId=@review.PizzaId&userId=@review.UserId&orderId=@review.OrderId" method="post" style="display:inline;">
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
-
                     </div>
                 </div>
             }

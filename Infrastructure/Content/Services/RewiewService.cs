@@ -1,3 +1,4 @@
+using Core.Dto.Review;
 using Core.Interfaces;
 using Core.Models;
 using Dapper;
@@ -50,7 +51,7 @@ public class RewiewService : IReviews
         }
     }
 
-    public async Task<bool> AddReview(Reviews review)
+    public async Task<bool> AddReview(ReviewDto review)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
@@ -62,7 +63,7 @@ public class RewiewService : IReviews
         }
     }
 
-    public async Task<bool> UpdateReview(Reviews review)
+    public async Task<bool> UpdateReview(ReviewDto review)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {

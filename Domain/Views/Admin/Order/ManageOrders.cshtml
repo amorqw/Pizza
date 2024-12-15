@@ -1,16 +1,16 @@
-@model IEnumerable<Core.Models.Pizzeria>
+@model IEnumerable<Core.Models.Orders>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Управление pizzerias</title>
+    <title>Manage Orders</title>
     <link href="~/css/admin.css" rel="stylesheet" />
 </head>
 <body>
 <header>
-    <h1>Управление pizzerias</h1>
+    <h1>Manage Orders</h1>
     <nav class="admin-menu">
         <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
@@ -24,33 +24,36 @@
 </header>
 
 <main>
-    <a href="/Admin/AddPizzeria" class="btn">Добавить новую пиццерию</a>
+    <a href="/Admin/AddOrder" class="btn">Add New Order</a>
     <div class="pizza-cards-container">
         @if (Model != null && Model.Any())
         {
-        foreach (var pizzeria in Model)
+        foreach (var order in Model)
         {
         <div class="pizza-card">
-            <h3> @pizzeria.Title</h3>
-            <p><strong>Рейтинг</strong> @pizzeria.Rating</p>
-            <p><strong>Адрес</strong> @pizzeria.Address</p>
-            <p><strong>Количество курьеров</strong> @pizzeria.CourierAmount</p>
+            <h3>@order.OrderId</h3>
+            <p><strong>Пользователь:</strong> @order.UserId.</p>
+            <p><strong>Курьер:</strong> @order.StaffId</p>
+            <p><strong>Статус:</strong> @order.Status</p>
+            <p><strong>Адрес:</strong> @order.Address</p>
+            <p><strong>Тип оплаты:</strong> @order.PaymentMethod</p>
+            <p><strong>Дата:</strong> @order.Date</p>
             <div class="pizza-actions">
-                <a href="/Admin/EditPizzeria/@pizzeria.PizzeriaId" class="btn">Edit</a>
-                <form action="/Admin/DeletePizzeria/@pizzeria.PizzeriaId" method="post" style="display:inline;">
+                <a href="/Admin/EditOrder?orderId=@order.OrderId" class="btn">Edit</a>
+                <form action="/Admin/DeleteOrder?orderId=@order.OrderId" method="post" style="display:inline;">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
+
             </div>
         </div>
         }
         }
         else
         {
-        <p>Пиццерии не найдены</p>
+        <p>No orders found.</p>
         }
     </div>
 </main>
-
 
 <footer>
 </footer>

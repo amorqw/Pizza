@@ -51,9 +51,8 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IAuth, AuthService>();
 builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<OrdersService>();
+builder.Services.AddScoped<IOrders,OrdersService>();
 builder.Services.AddScoped<IPizzas, PizzaService>();
-builder.Services.AddScoped<IIngredients, IngredientsService>();
 builder.Services.AddScoped<PizzaIngredientsService>();
 builder.Services.AddScoped<StaffService>();
 builder.Services.AddScoped<PizzaService>();

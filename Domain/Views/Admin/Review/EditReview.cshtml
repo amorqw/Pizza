@@ -1,0 +1,62 @@
+@model Core.Models.Reviews
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменить отзыв</title>
+    <link href="~/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Изменить отзыв</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManagePizzasAvailable">Manage PizzasAvailable</a>
+        <a href="/Admin/ManageStaffs">Manage Staffs</a>
+        <a href="/Admin/ManageReview">Manage Reviews</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+        <a href="/Admin/ManageOrderItems">Manage OrderItems</a>
+        <a href="/Admin/ManageUser">Manage Users</a>
+    </nav>
+</header>
+
+<main>
+    <form action="/Admin/UpdateReview" method="post">
+        <div>
+            <label for="PizzaId">Пицца:</label>
+            <input id="PizzaId" name="PizzaId" value="@Model.PizzaId" required readonly />
+        </div>
+        <div>
+            <label for="UserId">Пользователь:</label>
+            <input id="UserId" name="UserId" value="@Model.UserId" required readonly />
+        </div>
+        <div>
+            <label for="OrderId">Заказ:</label>
+            <input id="OrderId" name="OrderId" value="@Model.OrderId" required readonly />
+        </div>
+        <div>
+            <label for="Rating">Рейтинг:</label>
+            <input id="Rating" name="Rating" type="number" min="1" max="5" value="@Model.Rating" required />
+        </div>
+        <div>
+            <label for="Comment">Комментарий:</label>
+            <textarea id="Comment" name="Comment" required>@Model.Comment</textarea>
+        </div>
+        <div>
+            <label for="ReviewDate">Дата отзыва:</label>
+            <input id="ReviewDate" name="ReviewDate" type="datetime-local" value="@Model.ReviewDate.ToString("yyyy-MM-ddTHH:mm")" />
+        </div>
+
+        <button type="submit" class="btn">Сохранить изменения</button>
+    </form>
+
+</main>
+
+<footer>
+</footer>
+
+</body>
+</html>
