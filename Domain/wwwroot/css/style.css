@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+}
+
+.order-confirmation {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.order-confirmation h1 {
+    font-size: 2.5rem;
+    color: #ff7f00;
+    margin-bottom: 20px;
+}
+
+.order-confirmation p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.order-confirmation .btn {
+    background-color: #ff7f00;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.order-confirmation .btn:hover {
+    background-color: #e65c00;
+}
+
+footer {
+    background-color: #2d2d2d;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .order-confirmation {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .order-confirmation h1 {
+        font-size: 2rem;
+    }
+
+    .order-confirmation p {
+        font-size: 1rem;
+    }
+
+    .order-confirmation .btn {
+        font-size: 1rem;
+        padding: 12px 24px;
+    }
+}

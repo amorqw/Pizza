@@ -1,0 +1,51 @@
+@{
+    var order = ViewBag.Order as List<(Core.Models.Pizzas Pizza, int Quantity)>;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа</title>
+    <link rel="stylesheet" href="~/css/checkout.css">
+</head>
+<body>
+<h1>Оформление заказа</h1>
+
+<table class="order-summary">
+    <thead>
+    <tr>
+        <th>Пицца</th>
+        <th>Количество</th>
+        <th>Цена</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in order)
+    {
+        <tr>
+            <td>@item.Pizza.Title</td>
+            <td>@item.Quantity</td>
+            <td>@(item.Pizza.Price * item.Quantity) руб.</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<h3>Итог: @order.Sum(o => o.Pizza.Price * o.Quantity) руб.</h3>
+
+<form action="/Order/Submit" method="post">
+    <label for="address">Адрес доставки:</label>
+    <input type="text" id="address" name="address" required />
+    
+    <label for="paymentmethod">Метод оплаты:</label>
+    <select id="paymentmethod" name="paymentmethod" required>
+        <option value="card">Карта</option>
+        <option value="cash">Наличные</option>
+    </select>
+    
+    <button type="submit" class="btn">Подтвердить заказ</button>
+</form>
+</body>
+</html>

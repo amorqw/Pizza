@@ -145,10 +145,7 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.6"
         },
         "runtime": {
-          "Core.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Core.dll": {}
         }
       }
     }

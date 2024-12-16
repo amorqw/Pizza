@@ -4,7 +4,6 @@ namespace Core.Dto.Order;
 
 public class OrderDto
 {
-    [Key]
     public int OrderId { get; set; }
     public int UserId { get; set; }
     public int StaffId { get; set; }

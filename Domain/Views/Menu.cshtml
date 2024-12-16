@@ -1,6 +1,6 @@
 @{
-    var pizzeria = ViewBag.Pizzeria as Core.Models.Pizzeria;
-    var pizzas = ViewBag.Pizzas as List<Core.Models.Pizzas>;
+var pizzeria = ViewBag.Pizzeria as Core.Models.Pizzeria;
+var pizzas = ViewBag.Pizzas as List<Core.Models.Pizzas>;
 }
 
 <!DOCTYPE html>
@@ -15,23 +15,60 @@
 <div class="menu-header">
     <a href="javascript:history.back()" class="back-button">Назад</a>
     <h1 class="pizzeria-title">@pizzeria.Title</h1>
+    <a href="/PizzeriaPizza/Checkout" class="checkout-button">Оформить заказ</a>
+</div>
+
+<!-- Кнопка для открытия фильтров -->
+<label for="toggle-filters" class="btn">Фильтры</label>
+<input type="checkbox" id="toggle-filters" class="toggle-filters-checkbox" />
+
+<!-- Форма для фильтрации (по умолчанию скрыта) -->
+<div id="filter-container" class="filter-container">
+    <form method="get" action="/PizzeriaPizza/Menu">
+        <input type="hidden" name="pizzeriaId" value="@pizzeria.PizzeriaId" />
+
+        <label for="orderBy">Сортировать по:</label>
+        <select name="orderBy">
+            <option value="Price">Цене</option>
+            <option value="Name">Название</option>
+        </select>
+
+        <label for="sortDirection">Направление:</label>
+        <select name="sortDirection">
+            <option value="ASC">Возрастанию</option>
+            <option value="DESC">Убыванию</option>
+        </select>
+
+        <label for="size">Размер:</label>
+        <select name="size">
+            <option value="">Все</option>
+            <option value="small">Маленькая</option>
+            <option value="medium">Средняя</option>
+            <option value="large">Большая</option>
+        </select>
+
+        <button type="submit">Применить</button>
+    </form>
 </div>
 
 <section class="pizza-grid">
     @foreach (var pizza in pizzas)
     {
-        <div class="pizza-card">
-            <h3>@pizza.Title</h3>
-            <p class="pizza-description">@pizza.Description</p>
-            <p class="pizza-price">Цена: @pizza.Price руб.</p>
-            <form action="/Order/Pizza" method="post">
-                <input type="hidden" name="pizzaId" value="@pizza.PizzaId" />
-                <label for="quantity-@pizza.PizzaId">Количество:</label>
-                <input type="number" id="quantity-@pizza.PizzaId" name="quantity" value="1" min="1" max="99" required />
-                <button type="submit" class="btn">Заказать</button>
-            </form>
-        </div>
+    <div class="pizza-card">
+        <h3>@pizza.Title</h3>
+        <p class="pizza-description">@pizza.Description</p>
+        <p class="pizza-price">Цена: @pizza.Price руб.</p>
+        <form action="/PizzeriaPizza/AddToOrder" method="post">
+            <input type="hidden" name="pizzaId" value="@pizza.PizzaId" />
+            <input type="hidden" name="pizzeriaId" value="@pizzeria.PizzeriaId" /> <!-- добавлен параметр pizzeriaId -->
+            <label for="quantity-@pizza.PizzaId">Количество:</label>
+            <input type="number" id="quantity-@pizza.PizzaId" name="quantity" value="1" min="1" max="99" required />
+            <button type="submit" class="btn">Добавить в заказ</button>
+        </form>
+    </div>
     }
 </section>
+
+
 </body>
 </html>

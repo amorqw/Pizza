@@ -106,4 +106,35 @@ public class PizzaService : IPizzas
             return await connection.ExecuteAsync(sql, new { PizzaId = Pizzaid }) > 0;
         }
     }
+    public async Task<IEnumerable<Pizzas>> GetAllPizzasAsync(string orderBy = "Price", string sortDirection = "ASC", string size = null)
+    {
+        // Сортировка по цене или названию и направление сортировки
+        var sortByColumn = orderBy == "Name" ? "Title" : "Price";
+        var orderDirection = sortDirection.ToUpper() == "DESC" ? "DESC" : "ASC";
+
+        // Фильтрация по размеру пиццы
+        var sizeFilter = string.IsNullOrEmpty(size) ? "" : "WHERE Size = @Size";
+    
+        const string queryTemplate = @"
+        SELECT 
+            PizzaId, 
+            Title, 
+            Description, 
+            Price, 
+            Size, 
+            Receipt
+        FROM Pizzas
+        {0}
+        ORDER BY {1} {2}";
+
+        var query = string.Format(queryTemplate, sizeFilter, sortByColumn, orderDirection);
+
+        using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+        {
+            await connection.OpenAsync();
+            return await connection.QueryAsync<Pizzas>(query, new { Size = size });
+        }
+    }
+
+    
 }

@@ -13,6 +13,16 @@ using Pizza.Services.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.Cookie.Name = "Session";
+    options.IdleTimeout = TimeSpan.FromMinutes(120); 
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -47,6 +57,7 @@ builder.Services.AddCors(options =>
                 .AllowCredentials();
         });
 });
+
 
 
 builder.Services.AddScoped<IAuth, AuthService>();
@@ -89,7 +100,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("AllowLocalhost");
-
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();

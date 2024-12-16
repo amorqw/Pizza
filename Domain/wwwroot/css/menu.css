@@ -1,83 +1,277 @@
+/* Общие стили для страницы */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
 }
 
+/* Стили для меню */
 .menu-header {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
+    background-color: #ff7f00;
     color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
 }
 
-.back-button {
+.menu-header .back-button,
+.menu-header .checkout-button {
+    position: absolute;
+    top: 20px;
+    color: white;
+    font-size: 1.2rem;
     text-decoration: none;
-    color: white;
-    background-color: #555;
-    padding: 8px 15px;
+    padding: 10px 15px;
+    background-color: transparent;
+    border: 2px solid white;
     border-radius: 5px;
-    margin-right: auto;
-    font-size: 14px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-.back-button:hover {
-    background-color: #777;
+.menu-header .back-button {
+    left: 20px;
+}
+
+.menu-header .checkout-button {
+    right: 20px;
+}
+
+.menu-header .back-button:hover,
+.menu-header .checkout-button:hover {
+    background-color: white;
+    color: #ff7f00;
 }
 
 .pizzeria-title {
-    font-size: 1.5em;
-    margin: 0;
-}
-
-.pizza-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.pizza-card {
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.pizza-card h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.pizza-card p {
-    font-size: 0.9em;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.pizza-card .pizza-price {
-    font-size: 1.1em;
-    color: #333;
+    font-size: 2rem;
+    margin-top: 10px;
     font-weight: bold;
 }
 
-.pizza-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.pizza-card p.pizza-description {
-    max-height: 3.6em; /* Ограничиваем высоту до двух строк (с учетом line-height) */
-    line-height: 1.2em; /* Высота строки */
-    overflow: hidden; /* Скрываем лишний текст */
-    text-overflow: ellipsis; /* Добавляем "..." */
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Ограничиваем до 3 строк */
-    -webkit-box-orient: vertical;
+/* Фильтры */
+.filter-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-item label {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.filter-item select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.filter-item select:focus {
+    border-color: #ff7f00;
+}
+
+.apply-btn {
+    background-color: #ff7f00;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+}
+
+.apply-btn:hover {
+    background-color: #e65c00;
+}
+
+/* Стили для сетки пицц */
+.pizza-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Адаптируем для разных экранов */
+    gap: 70px; /* Увеличиваем отступы между карточками */
+    padding: 20px;
+    justify-items: center;
+}
+
+/* Стили для карточки пиццы */
+.pizza-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%; /* Обеспечивает гибкость карточек */
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto; /* Центрирование карточек */
+}
+
+.pizza-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pizza-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.pizza-description {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Описание не будет переноситься на несколько строк */
+    max-width: 250px; /* Ограничение ширины */
+}
+
+.pizza-price {
+    font-size: 1.2rem;
+    color: #ff7f00;
+    margin-bottom: 15px;
+}
+
+/* Стили для формы добавления в заказ */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+form input[type="number"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+form button {
+    background-color: #ff7f00;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #e65c00;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .menu-header {
+        padding: 10px;
+    }
+
+    .menu-header .back-button,
+    .menu-header .checkout-button {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+
+    .pizza-card {
+        width: 90%; /* Карточки будут занимать 90% ширины экрана */
+    }
+
+    .pizza-grid {
+        grid-template-columns: 1fr; /* Одноколоночная сетка для мобильных */
+        gap: 20px; /* Снижение отступов на мобильных */
+    }
+
+    .filter-form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-item {
+        min-width: unset; /* Убираем ограничение на минимальную ширину для мобильных */
+    }
+
+    .apply-btn {
+        align-self: flex-start;
+    }
+}
+/* Стили для контейнера с фильтрами (по умолчанию скрыт) */
+.filter-container {
+    display: none;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.toggle-filters-checkbox {
+    display: none;
+}
+
+#toggle-filters:checked + #filter-container {
+    display: block;
+}
+
+label[for="toggle-filters"] {
+    background-color:#007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+label[for="toggle-filters"]:hover {
+    background-color: #e65c00;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .filter-container {
+        margin: 10px 0;
+    }
+
+    label[for="toggle-filters"] {
+        width: 100%;
+    }
+}

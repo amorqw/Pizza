@@ -3,73 +3,74 @@ using Core.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Pizza.Controllers
-{/*
-    [Route("api/[controller]")]
-    [ApiController]
-    public class OrdersController : ControllerBase
+{
+    /*
+    public class OrderController : Controller
     {
-        private readonly IOrders _ordersService;
+        private readonly IOrders _orderService;
+        private readonly IUser _userService;
 
-        public OrdersController(IOrders ordersService)
+        public OrderController(IOrders orderService, IUser userService)
         {
-            _ordersService = ordersService;
-        }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Orders>> GetOrder(int id)
-        {
-            var order = await _ordersService.GetOrderById(id);
-            if (order == null)
-            {
-                return NotFound();
-            }
-            return Ok(order);
-        }
-
-        [HttpGet("user/{userId}")]
-        public async Task<ActionResult<IEnumerable<Orders>>> GetOrdersByUserId(int userId)
-        {
-            var orders = await _ordersService.GetOrdersByUserId(userId);
-            return Ok(orders);
+            _orderService = orderService;
+            _userService = userService;
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateOrder(Orders order)
+        public IActionResult PizzaOrder(int pizzaId, int quantity)
         {
-            var result = await _ordersService.AddOrder(order);
-            if (!result)
+            var userId = GetUserIdFromCookie();
+            if (userId == null)
             {
-                return BadRequest();
-            }
-            return CreatedAtAction(nameof(GetOrder), new { id = order.OrderId }, order);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateOrder(int id, Orders order)
-        {
-            if (id != order.OrderId)
-            {
-                return BadRequest();
+                return RedirectToAction("Login", "Account"); // Если не авторизован, переадресация на логин
             }
 
-            var result = await _ordersService.UpdateOrder(order);
-            if (!result)
+            // Формирование заказа
+            var order = new Orders
             {
-                return NotFound();
-            }
-            return NoContent();
+                UserId = userId.Value,
+                StaffId = 0, // ID сотрудника, можно заменить на логику подбора
+                Status = "Создан",
+                Address = GetUserAddress(userId.Value),
+                PaymentMethod = "Наличные",
+                Date = DateTime.Now
+            };
+
+            var orderId = _orderService.CreateOrder(order);
+
+            // Добавление позиции в заказ
+            var orderItem = new OrderItems
+            {
+                OrderId = orderId,
+                PizzaId = pizzaId,
+                Amount = quantity
+            };
+
+            _orderService.AddOrderItem(orderItem);
+
+            // Переадресация на страницу успешного оформления заказа
+            return RedirectToAction("OrderSuccess");
         }
 
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteOrder(int id)
+        public IActionResult OrderSuccess()
         {
-            var result = await _ordersService.DeleteOrder(id);
-            if (!result)
-            {
-                return NotFound();
-            }
-            return NoContent();
+            return View();
         }
-    }
+        
+        private int? GetUserIdFromCookie()
+        {
+            if (Request.Cookies.TryGetValue("userid", out var userId))
+            {
+                return int.Parse(userId);
+            }
+            return null;
+        }
+
+        private async Task<string> GetUserAddress(int userId)
+        {
+            var user= await _userService.GetUser(userId);
+            return 
+        }
+    } 
     */
 }

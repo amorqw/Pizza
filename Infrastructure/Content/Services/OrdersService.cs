@@ -8,6 +8,7 @@ namespace Infrastructure.Content.Services
 {
     public class OrdersService : IOrders
     {
+        
         public async Task<OrderDto?> GetOrderById(int orderId)
         {
             using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
@@ -50,6 +51,39 @@ namespace Infrastructure.Content.Services
                 return result > 0;
             }
         }
+        public async Task<int?> AddOrderReturnId(OrderDto order)
+        {
+            try
+            {
+                using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+                {
+                    await connection.OpenAsync();
+
+                    // Логируем параметры
+                    Console.WriteLine($"UserId: {order.UserId}, StaffId: {order.StaffId}, Date: {order.Date}, Status: {order.Status}, Address: {order.Address}, PaymentMethod: {order.PaymentMethod}");
+
+                    string sql = @"
+            INSERT INTO Orders (UserId, StaffId, Date, Status, Address, PaymentMethod) 
+            VALUES (@UserId, @StaffId, @Date, @Status, @Address, @PaymentMethod) 
+            RETURNING OrderId";
+
+                    var orderId = await connection.ExecuteScalarAsync<int?>(sql, order);
+
+                    Console.WriteLine($"Returned OrderId: {orderId}");
+
+                    return orderId;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Логируем ошибку
+                Console.WriteLine($"Error: {ex.Message}");
+                return null;
+            }
+        }
+
+
+
 
         public async Task<bool> UpdateOrder(OrderDto order)
         {
