@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets/css/login.css"
     },
     {
+      "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/menu.css",
+      "PackagePath": "staticwebassets/css/menu.css"
+    },
+    {
       "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/registration.css",
       "PackagePath": "staticwebassets/css/registration.css"
     },

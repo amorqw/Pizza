@@ -1,13 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+using Core.Interfaces;
 
 namespace Pizza.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IPizzeria _pizzeriaService;
+
+        public HomeController(IPizzeria pizzeriaService)
         {
+            _pizzeriaService = pizzeriaService;
+        }
+        public async Task<IActionResult> Index()
+        {
+            var pizzerias = await _pizzeriaService.GetAllPizzerias();
+            ViewBag.Pizzerias = pizzerias;
             var token = Request.Cookies["tasty-cookies"];
+            
 
             if (string.IsNullOrEmpty(token))
             {
@@ -21,7 +30,7 @@ namespace Pizza.Controllers
                           string.Equals(roleClaim.Value, "Admin", StringComparison.OrdinalIgnoreCase);
 
             ViewBag.IsAdmin = isAdmin;
-
+            
             return View("~/Views/Home/Home.cshtml");
         }
 
@@ -31,5 +40,11 @@ namespace Pizza.Controllers
             Response.Cookies.Delete("tasty-cookies");
             return RedirectToAction("Index", "Login");
         }
+        [HttpPost("/Home/SelectPizzeria")]
+        public IActionResult SelectPizzeria(int pizzeriaId)
+        {
+            return RedirectToAction("Menu", "PizzeriaPizza", new { pizzeriaId = pizzeriaId });
+        }
+
     }
 }

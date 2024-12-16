@@ -8,6 +8,23 @@ namespace Infrastructure.Content.Services;
 
 public class PizzasAvailableService : IPizzasAvailable
 {
+    public async Task<IEnumerable<Pizzas>> GetPizzasByPizzeria(int pizzeriaId)
+    {
+        using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+        {
+            await connection.OpenAsync();
+        
+            // Запрос, который извлекает доступные пиццы для пиццерии
+            const string query = @"
+            SELECT p.PizzaId, p.Title, p.Description, p.Price, p.Size, p.Receipt
+            FROM Pizzas p
+            INNER JOIN PizzasAvailable pa ON p.PizzaId = pa.PizzaId
+            WHERE pa.PizzeriaId = @PizzeriaId AND pa.Available = TRUE";
+        
+            var result = await connection.QueryAsync<Pizzas>(query, new { PizzeriaId = pizzeriaId });
+            return result;
+        }
+    }
     public async Task<IEnumerable<PizzasAvailableDto>> GetAll()
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))

@@ -1,3 +1,5 @@
+@model IEnumerable<Core.Models.Pizzeria>
+
 @{
 ViewData["Title"] = "Welcome to Pizza World";
 }
@@ -25,12 +27,12 @@ ViewData["Title"] = "Welcome to Pizza World";
                 }
                 else
                 {
-                    <li><a href="/Menu">Menu</a></li>
-                    <li>
-                        <form action="/logout" method="post" style="display:inline;">
-                            <button type="submit" class="logout-btn">Выйти</button>
-                        </form>
-                    </li>
+                <li><a href="/Menu">Menu</a></li>
+                <li>
+                    <form action="/logout" method="post" style="display:inline;">
+                        <button type="submit" class="logout-btn">Выйти</button>
+                    </form>
+                </li>
                 @if (ViewBag.IsAdmin)
                 {
                 <li><a href="/Admin">Admin Panel</a></li>
@@ -44,11 +46,182 @@ ViewData["Title"] = "Welcome to Pizza World";
 <div class="hero">
     <h2>Welcome to the Best Pizza Place!</h2>
     <p>Order your favorite pizza online and enjoy delicious flavors at home.</p>
-    <a href="/Menu" class="cta-btn">Explore Menu</a>
+</div>
+
+<div class="pizzeria-list">
+    @if (ViewBag.Pizzerias != null)
+    {
+    @foreach (var pizzeria in ViewBag.Pizzerias)
+    {
+    <div class="pizza-card">
+        <h3>@pizzeria.Title</h3>
+        <p><strong>Рейтинг:</strong> @pizzeria.Rating / 5</p>
+        <p><strong>Адрес:</strong> @pizzeria.Address</p>
+        @if (Context.Request.Cookies["tasty-cookies"] != null)
+        {
+        <div class="pizza-actions">
+            <form action="/Home/SelectPizzeria" method="post" style="display:inline;">
+                <input type="hidden" name="pizzeriaId" value="@pizzeria.PizzeriaId" />
+                <button type="submit" class="btn">Выбрать пиццерию</button>
+            </form>
+        </div>
+        }
+        else
+        {
+        <p class="not-authorized">Войдите, чтобы выбрать пиццерию.</p>
+        }
+    </div>
+
+    }
+    }
 </div>
 
 <footer>
-    <p>&copy; 2024 Pizza World. All rights reserved.</p>
+    <p>Pizza World - Best Pizza in Town!</p>
 </footer>
 </body>
 </html>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+    }
+
+    .navbar {
+        background-color: #ff7f00;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+
+    .navbar nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    .navbar nav ul li {
+        margin-left: 20px;
+    }
+
+    .navbar nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    .navbar nav ul li a:hover {
+        color: #2d2d2d;
+    }
+
+    .hero {
+        background-color: #ff7f00;
+        text-align: center;
+        padding: 100px 20px;
+        color: white;
+    }
+
+    .hero h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .hero .cta-btn {
+        background-color: #2d2d2d;
+        padding: 15px 30px;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        text-decoration: none;
+        color: white;
+    }
+
+    .hero .cta-btn:hover {
+        background-color: #333;
+    }
+
+    footer {
+        background-color: #2d2d2d;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    footer p {
+        font-size: 1rem;
+    }
+
+    .logout-btn {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .logout-btn:hover {
+        color: #ff6347;
+    }
+
+    /* Стили для карточек пиццерий */
+    .pizzeria-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding: 20px;
+    }
+
+    .pizza-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 250px;
+        margin: 15px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .pizza-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .pizza-card h3 {
+        font-size: 1.5rem;
+        color: #333333;
+        margin-bottom: 10px;
+    }
+
+    .pizza-card p {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .pizza-actions .btn {
+        background-color: #ff7f00;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .pizza-actions .btn:hover {
+        background-color: #e65c00;
+    }
+    .not-authorized {
+        color: #ff0000;
+        font-size: 0.9em;
+        margin-top: 10px;
+    }
+
+</style>

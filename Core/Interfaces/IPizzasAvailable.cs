@@ -5,6 +5,7 @@ namespace Core.Interfaces;
 
 public interface IPizzasAvailable
 {
+    Task<IEnumerable<Pizzas>> GetPizzasByPizzeria(int pizzeriaId);
     Task<IEnumerable<PizzasAvailableDto>> GetAll();
     Task<PizzasAvailable?> GetById(int pizzeriaId, int pizzaId);
     Task<bool> Add(PizzasAvailable pizzasAvailable);

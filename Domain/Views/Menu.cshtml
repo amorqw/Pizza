@@ -1,0 +1,37 @@
+@{
+    var pizzeria = ViewBag.Pizzeria as Core.Models.Pizzeria;
+    var pizzas = ViewBag.Pizzas as List<Core.Models.Pizzas>;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@pizzeria.Title - Меню</title>
+    <link rel="stylesheet" href="~/css/menu.css">
+</head>
+<body>
+<div class="menu-header">
+    <a href="javascript:history.back()" class="back-button">Назад</a>
+    <h1 class="pizzeria-title">@pizzeria.Title</h1>
+</div>
+
+<section class="pizza-grid">
+    @foreach (var pizza in pizzas)
+    {
+        <div class="pizza-card">
+            <h3>@pizza.Title</h3>
+            <p class="pizza-description">@pizza.Description</p>
+            <p class="pizza-price">Цена: @pizza.Price руб.</p>
+            <form action="/Order/Pizza" method="post">
+                <input type="hidden" name="pizzaId" value="@pizza.PizzaId" />
+                <label for="quantity-@pizza.PizzaId">Количество:</label>
+                <input type="number" id="quantity-@pizza.PizzaId" name="quantity" value="1" min="1" max="99" required />
+                <button type="submit" class="btn">Заказать</button>
+            </form>
+        </div>
+    }
+</section>
+</body>
+</html>

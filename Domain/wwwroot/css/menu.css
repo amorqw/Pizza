@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.menu-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+.back-button {
+    text-decoration: none;
+    color: white;
+    background-color: #555;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-right: auto;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #777;
+}
+
+.pizzeria-title {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.pizza-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.pizza-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.pizza-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.pizza-card p {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.pizza-card .pizza-price {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+}
+
+.pizza-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.pizza-card p.pizza-description {
+    max-height: 3.6em; /* Ограничиваем высоту до двух строк (с учетом line-height) */
+    line-height: 1.2em; /* Высота строки */
+    overflow: hidden; /* Скрываем лишний текст */
+    text-overflow: ellipsis; /* Добавляем "..." */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Ограничиваем до 3 строк */
+    -webkit-box-orient: vertical;
+}
+

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+e+MtMn6q76iBgc0unv9qiQhWwuLMkFd3It1cvm3b+Q=",
+  "Hash": "+J3cLNdfo4VbLX06xw4cRltaV05RfwBRom6sjHSH8P4=",
   "Source": "Domain",
   "BasePath": "_content/Domain",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/login.css"
+    },
+    {
+      "Identity": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/menu.css",
+      "SourceId": "Domain",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/",
+      "BasePath": "_content/Domain",
+      "RelativePath": "css/menu.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/menu.css"
     },
     {
       "Identity": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/registration.css",

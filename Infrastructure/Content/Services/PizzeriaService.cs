@@ -8,6 +8,8 @@ namespace Infrastructure.Content.Services;
 
 public class PizzeriaService : IPizzeria
 {
+    
+    
     public async Task<IEnumerable<Pizzeria>> GetAllPizzerias()
     {
         const string query = @"
