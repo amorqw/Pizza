@@ -46,6 +46,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vUGl6emEvTWFuYWdlUGl6emFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Admin/PizzaAvailable/AddPizzaAvailable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vUGl6emFBdmFpbGFibGUvQWRkUGl6emFBdmFpbGFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Admin/PizzaAvailable/EditPizzaAvailable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vUGl6emFBdmFpbGFibGUvRWRpdFBpenphQXZhaWxhYmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Admin/PizzaAvailable/ManagePizzaAvailable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vUGl6emFBdmFpbGFibGUvTWFuYWdlUGl6emFBdmFpbGFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/amorqww/RiderProjects/PizzaViewModel/Domain/Views/Admin/Pizzeria/AddPizzeria.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vUGl6emVyaWEvQWRkUGl6emVyaWEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

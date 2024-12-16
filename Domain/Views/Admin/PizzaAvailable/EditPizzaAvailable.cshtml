@@ -1,0 +1,57 @@
+@model Core.Models.PizzasAvailable
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Pizza Availability</title>
+    <link href="~/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Edit Pizza Availability</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManagePizzasAvailable">Manage Pizzas Available</a>
+        <a href="/Admin/ManageStaffs">Manage Staffs</a>
+        <a href="/Admin/ManageReview">Manage Reviews</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+        <a href="/Admin/ManageOrderItems">Manage OrderItems</a>
+        <a href="/Admin/ManageUser">Manage Users</a>
+    </nav>
+</header>
+
+<main>
+    <form action="@Url.Action("Update", "PizzaAvailable")" method="post">
+        <input type="hidden" name="PizzeriaId" value="@Model.PizzeriaId" />
+        <input type="hidden" name="PizzaId" value="@Model.PizzaId" />
+        
+        <div>
+            <label for="PizzeriaId">Pizzeria ID:</label>
+            <input type="text" id="PizzeriaId" name="PizzeriaId" value="@Model.PizzeriaId" readonly />
+        </div>
+        <div>
+            <label for="PizzaId">Pizza ID:</label>
+            <input type="text" id="PizzaId" name="PizzaId" value="@Model.PizzaId" readonly />
+        </div>
+        <div>
+            <label for="Available">Available:</label>
+            <select id="Available" name="Available">
+                <option value="true" @(Model.Available ? "selected" : "")>True</option>
+                <option value="false" @(Model.Available == false ? "selected" : "")>False</option>
+            </select>
+        </div>
+
+
+
+        <button type="submit" class="btn">Save Changes</button>
+    </form>
+</main>
+
+<footer>
+</footer>
+
+</body>
+</html>

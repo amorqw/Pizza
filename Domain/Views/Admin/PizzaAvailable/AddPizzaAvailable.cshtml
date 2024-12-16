@@ -1,0 +1,48 @@
+@model Core.Models.PizzasAvailable
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Pizza Availability</title>
+    <link href="~/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Add New Pizza Availability</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManagePizzasAvailable">Manage Pizzas Available</a>
+        <a href="/Admin/ManageStaffs">Manage Staffs</a>
+        <a href="/Admin/ManageReview">Manage Reviews</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+        <a href="/Admin/ManageOrderItems">Manage OrderItems</a>
+        <a href="/Admin/ManageUser">Manage Users</a>
+    </nav>
+</header>
+
+<main>
+    <form action="/Admin/AddPizzaAvailable" method="post">
+        <div>
+            <label for="PizzeriaId">Pizzeria ID:</label>
+            @Html.TextBoxFor(m => m.PizzeriaId, new { @required = "required" })
+        </div>
+        <div>
+            <label for="PizzaId">Pizza ID:</label>
+            @Html.TextBoxFor(m => m.PizzaId, new { @required = "required" })
+        </div>
+        <div>
+            <label for="Available">Available:</label>
+            @Html.DropDownListFor(m => m.Available, new SelectList(new[] { true, false }), new { @required = "required" })
+        </div>
+        <button type="submit" class="btn">Add Pizza Availability</button>
+    </form>
+</main>
+
+<footer>
+</footer>
+
+</body>
+</html>

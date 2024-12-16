@@ -1,0 +1,61 @@
+ @model IEnumerable<Core.Dto.PizzasAvailable.PizzasAvailableDto>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Pizzas Available</title>
+    <link href="~/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Manage Pizzas Available</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManagePizzaAvailable">Manage Pizzas Available</a>
+        <a href="/Admin/ManageStaffs">Manage Staffs</a>
+        <a href="/Admin/ManageReview">Manage Reviews</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+        <a href="/Admin/ManageOrderItems">Manage OrderItems</a>
+        <a href="/Admin/ManageUser">Manage Users</a>
+    </nav>
+</header>
+
+<main>
+    <a href="/Admin/AddPizzaAvailable" class="btn">Add New Pizza Availability</a>
+    <div class="pizza-cards-container">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var pizza in Model)
+            {
+                <div class="pizza-card">
+                    <p><strong>Pizzeria:</strong> @pizza.PizzeriaId</p>
+                    <p><strong>Pizzeria Name:</strong> @pizza.PizzeriaName</p>
+
+                    <p><strong>Pizza:</strong> @pizza.PizzaId</p>
+                    <p><strong>Pizza Name:</strong> @pizza.PizzaName</p>
+
+                    <p><strong>Available :</strong> @pizza.Available</p>
+                    <div class="pizza-actions">
+                        <a href="/Admin/EditPizzasAvailable?pizzeriaId=@pizza.PizzeriaId&pizzaId=@pizza.PizzaId" class="btn">Edit</a>
+                        <form action="/Admin/DeletePizzasAvailable?pizzeriaId=@pizza.PizzeriaId&pizzaId=@pizza.PizzaId" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>No pizzas available found.</p>
+        }
+    </div>
+</main>
+
+<footer>
+</footer>
+
+</body>
+</html>
