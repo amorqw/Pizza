@@ -1,8 +1,16 @@
 {
   "Files": [
     {
+      "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/add.css",
+      "PackagePath": "staticwebassets/css/add.css"
+    },
+    {
       "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/admin.css",
       "PackagePath": "staticwebassets/css/admin.css"
+    },
+    {
+      "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/edit.css",
+      "PackagePath": "staticwebassets/css/edit.css"
     },
     {
       "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/home.css",

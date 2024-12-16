@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "x47ka9iSR1R12VEf3NKiKmlmlp1enGE6CQvmAKO1nB0=",
+  "Hash": "+e+MtMn6q76iBgc0unv9qiQhWwuLMkFd3It1cvm3b+Q=",
   "Source": "Domain",
   "BasePath": "_content/Domain",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/add.css",
+      "SourceId": "Domain",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/",
+      "BasePath": "_content/Domain",
+      "RelativePath": "css/add.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/add.css"
+    },
     {
       "Identity": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/admin.css",
       "SourceId": "Domain",
@@ -34,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/admin.css"
+    },
+    {
+      "Identity": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/edit.css",
+      "SourceId": "Domain",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/",
+      "BasePath": "_content/Domain",
+      "RelativePath": "css/edit.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/edit.css"
     },
     {
       "Identity": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/home.css",

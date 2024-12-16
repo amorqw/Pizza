@@ -82,4 +82,5 @@ insert into pizzas(title, description, price, size, receipt)
 values (1, 11, 111, 'large', 'https://open.spotify.com/');
 insert into orders (userid,staffid,status,address,paymentmethod) values(1,1,12, 12,13);
 insert into reviews(pizzaid, userid, orderid, comment, rating) values(5,1,1,1,1);
-insert into PizzasAvailable (pizzeriaid, pizzaid, available) values (1,2,True)
+insert into PizzasAvailable (pizzeriaid, pizzaid, available) values (1,2,True);
+insert into orderitems (OrderId, PizzaId, amount) values(2,2,22)

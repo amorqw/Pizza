@@ -14,7 +14,7 @@
     <nav class="admin-menu">
         <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
-        <a href="/Admin/ManagePizzasAvailable">Manage PizzasAvailable</a>
+        <a href="/Admin/ManagePizzaAvailable">Manage PizzasAvailable</a>
         <a href="/Admin/ManageStaffs">Manage Staffs</a>
         <a href="/Admin/ManageReview">Manage Reviews</a>
         <a href="/Admin/ManageOrders">Manage Orders</a>
@@ -24,7 +24,7 @@
 </header>
 
 <main>
-    <a href="/Admin/AddUser" class="btn">Добавить нового пользователя</a>
+    <button class="btn-add" onclick="window.location.href='/Admin/AddUser'">Добавить нового пользователя</button>
     <div class="pizza-cards-container">
         @if (Model != null && Model.Any())
         {

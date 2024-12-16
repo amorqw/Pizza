@@ -1,70 +1,93 @@
+using System.Data.Common;
+using Dapper;
 using Core.Interfaces;
 using Core.Models;
-using Dapper;
 using Npgsql;
 
-namespace Infrastructure.Content.Services;
-
-public class OrderItemsService : IOrderItems
+namespace Infrastructure.Content.Services
 {
-    public async Task<OrderItems?> GetOrderItemById(int orderItemId)
+    public class OrderItemsService : IOrderItems
     {
-        using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+        public async Task<IEnumerable<OrderItems>> GetAllOrderItemsAsync()
         {
-            await connection.OpenAsync();
-            return await connection.QueryFirstOrDefaultAsync<OrderItems>(
-                @"SELECT * FROM OrderItems WHERE OrderItemId = @OrderItemId",
-                new { OrderItemId = orderItemId });
-        }
-    }
+            const string query = @"
+                SELECT 
+                    OrderId, 
+                    PizzaId, 
+                    Amount
+                FROM OrderItems";
 
-    public async Task<IEnumerable<OrderItems>> GetOrderItemsByOrderId(int orderId)
-    {
-        using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
-        {
-            await connection.OpenAsync();
-            return await connection.QueryAsync<OrderItems>(
-                @"SELECT * FROM OrderItems WHERE OrderId = @OrderId",
-                new { OrderId = orderId });
+            using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+            {
+                await connection.OpenAsync();
+                return await connection.QueryAsync<OrderItems>(query);
+            }
         }
-    }
 
-    public async Task<bool> AddOrderItem(OrderItems orderItem)
-    {
-        using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+        public async Task<OrderItems> GetOrderItem(int orderId, int pizzaId)
         {
-            await connection.OpenAsync();
-            string sql = @"INSERT INTO OrderItems (OrderId, PizzaId, Quantity, ItemPrice) 
-                           VALUES (@OrderId, @PizzaId, @Quantity, @ItemPrice)";
-            var result = await connection.ExecuteAsync(sql, orderItem);
-            return result > 0;
+            using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+            {
+                connection.Open();
+                return await connection.QueryFirstOrDefaultAsync<OrderItems>(
+                    @"SELECT * 
+                      FROM OrderItems 
+                      WHERE OrderId = @orderId AND PizzaId = @pizzaId",
+                    new { orderId, pizzaId }
+                );
+            }
         }
-    }
 
-    public async Task<bool> UpdateOrderItem(OrderItems orderItem)
-    {
-        using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+        public async Task<OrderItems> CreateOrderItem(OrderItems orderItem)
         {
-            await connection.OpenAsync();
-            string sql = @"UPDATE OrderItems 
-                           SET OrderId = @OrderId, 
-                               PizzaId = @PizzaId, 
-                               Quantity = @Quantity, 
-                               ItemPrice = @ItemPrice 
-                           WHERE OrderItemId = @OrderItemId";
-            var result = await connection.ExecuteAsync(sql, orderItem);
-            return result > 0;
+            using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+            {
+                await connection.OpenAsync();
+                string sql = @"
+                    INSERT INTO OrderItems (OrderId, PizzaId, Amount)
+                    VALUES (@OrderId, @PizzaId, @Amount)
+                    RETURNING OrderId, PizzaId, Amount";
+
+                var newOrderItem = await connection.QueryFirstOrDefaultAsync<OrderItems>(sql, orderItem);
+                return newOrderItem;
+            }
         }
-    }
 
-    public async Task<bool> DeleteOrderItem(int orderItemId)
-    {
-        using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+        public async Task<OrderItems> UpdateOrderItem(int orderId, int pizzaId, OrderItems orderItem)
         {
-            await connection.OpenAsync();
-            string sql = @"DELETE FROM OrderItems WHERE OrderItemId = @OrderItemId";
-            var result = await connection.ExecuteAsync(sql, new { OrderItemId = orderItemId });
-            return result > 0;
+            using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+            {
+                connection.Open();
+                string sql = @"
+                    UPDATE OrderItems 
+                    SET Amount = @Amount
+                    WHERE OrderId = @OrderId AND PizzaId = @PizzaId
+                    RETURNING *";
+
+                return await connection.QueryFirstOrDefaultAsync<OrderItems>(sql, new
+                {
+                    orderId,
+                    pizzaId,
+                    orderItem.Amount
+                });
+            }
+        }
+
+        public async Task<bool> DeleteOrderItem(int orderId, int pizzaId)
+        {
+            using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+            {
+                connection.Open();
+                var orderItem = await connection.QueryFirstOrDefaultAsync<OrderItems>(
+                    "SELECT * FROM OrderItems WHERE OrderId = @OrderId AND PizzaId = @PizzaId", 
+                    new { orderId, pizzaId });
+
+                if (orderItem == null)
+                    return false;
+
+                string sql = "DELETE FROM OrderItems WHERE OrderId = @OrderId AND PizzaId = @PizzaId";
+                return await connection.ExecuteAsync(sql, new { orderId, pizzaId }) > 0;
+            }
         }
     }
 }

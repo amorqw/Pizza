@@ -1,18 +1,18 @@
-@model Core.Models.PizzasAvailable
+@model Core.Models.OrderItems
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Pizza Availability</title>
+    <title>Edit Order Item</title>
     <link href="~/css/edit.css" rel="stylesheet" />
 </head>
 <body>
 <header>
-    <h1>Edit Pizza Availability</h1>
+    <h1>Edit Order Item</h1>
     <nav class="admin-menu">
-        <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
+        <a href="/Admin/ManagePizzerias">Manage Pizzerias</a>
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
         <a href="/Admin/ManagePizzaAvailable">Manage Pizzas Available</a>
         <a href="/Admin/ManageStaffs">Manage Staffs</a>
@@ -24,27 +24,24 @@
 </header>
 
 <main>
-    <form action="@Url.Action("Update", "PizzaAvailable")" method="post">
-        <input type="hidden" name="PizzeriaId" value="@Model.PizzeriaId" />
+    <form action="@Url.Action("UpdateOrderItem", "OrderItems")" method="post">
+        <input type="hidden" name="OrderId" value="@Model.OrderId" />
         <input type="hidden" name="PizzaId" value="@Model.PizzaId" />
-        
+
         <div>
-            <label for="PizzeriaId">Pizzeria ID:</label>
-            <input type="text" id="PizzeriaId" name="PizzeriaId" value="@Model.PizzeriaId" readonly />
+            <label for="OrderId">Order ID:</label>
+            <input type="text" id="OrderId" name="OrderId" value="@Model.OrderId" readonly />
         </div>
+
         <div>
             <label for="PizzaId">Pizza ID:</label>
             <input type="text" id="PizzaId" name="PizzaId" value="@Model.PizzaId" readonly />
         </div>
+
         <div>
-            <label for="Available">Available:</label>
-            <select id="Available" name="Available">
-                <option value="true" @(Model.Available ? "selected" : "")>True</option>
-                <option value="false" @(Model.Available == false ? "selected" : "")>False</option>
-            </select>
+            <label for="Amount">Amount:</label>
+            <input type="number" id="Amount" name="Amount" value="@Model.Amount" required />
         </div>
-
-
 
         <button type="submit" class="btn">Save Changes</button>
     </form>

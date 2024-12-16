@@ -1,18 +1,18 @@
-@model Core.Models.PizzasAvailable
+@model Core.Models.OrderItems
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Pizza Availability</title>
+    <title>Add Order Item</title>
     <link href="~/css/add.css" rel="stylesheet" />
 </head>
 <body>
 <header>
-    <h1>Add New Pizza Availability</h1>
+    <h1>Add New Order Item</h1>
     <nav class="admin-menu">
-        <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
+        <a href="/Admin/ManagePizzerias">Manage Pizzerias</a>
         <a href="/Admin/ManagePizzas">Manage Pizzas</a>
         <a href="/Admin/ManagePizzaAvailable">Manage Pizzas Available</a>
         <a href="/Admin/ManageStaffs">Manage Staffs</a>
@@ -24,20 +24,20 @@
 </header>
 
 <main>
-    <form action="/Admin/AddPizzaAvailable" method="post">
+    <form action="/Admin/AddOrderItem" method="post">
         <div>
-            <label for="PizzeriaId">Pizzeria ID:</label>
-            @Html.TextBoxFor(m => m.PizzeriaId, new { @required = "required" })
+            <label for="OrderId">Order ID:</label>
+            <input type="text" id="OrderId" name="OrderId" required />
         </div>
         <div>
             <label for="PizzaId">Pizza ID:</label>
-            @Html.TextBoxFor(m => m.PizzaId, new { @required = "required" })
+            <input type="text" id="PizzaId" name="PizzaId" required />
         </div>
         <div>
-            <label for="Available">Available:</label>
-            @Html.DropDownListFor(m => m.Available, new SelectList(new[] { true, false }), new { @required = "required" })
+            <label for="Amount">Amount:</label>
+            <input type="number" id="Amount" name="Amount" required />
         </div>
-        <button type="submit" class="btn">Add Pizza Availability</button>
+        <button type="submit" class="btn">Add Order Item</button>
     </form>
 </main>
 
