@@ -1,59 +1,59 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\add.css",
-      "PackagePath": "staticwebassets\\css\\add.css"
+      "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/add.css",
+      "PackagePath": "staticwebassets/css/add.css"
     },
     {
-      "Id": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\admin.css",
-      "PackagePath": "staticwebassets\\css\\admin.css"
+      "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/admin.css",
+      "PackagePath": "staticwebassets/css/admin.css"
     },
     {
-      "Id": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\checkout.css",
-      "PackagePath": "staticwebassets\\css\\checkout.css"
+      "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/checkout.css",
+      "PackagePath": "staticwebassets/css/checkout.css"
     },
     {
-      "Id": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\edit.css",
-      "PackagePath": "staticwebassets\\css\\edit.css"
+      "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/edit.css",
+      "PackagePath": "staticwebassets/css/edit.css"
     },
     {
-      "Id": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\home.css",
-      "PackagePath": "staticwebassets\\css\\home.css"
+      "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/home.css",
+      "PackagePath": "staticwebassets/css/home.css"
     },
     {
-      "Id": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\leave.css",
-      "PackagePath": "staticwebassets\\css\\leave.css"
+      "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/leave.css",
+      "PackagePath": "staticwebassets/css/leave.css"
     },
     {
-      "Id": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\login.css",
-      "PackagePath": "staticwebassets\\css\\login.css"
+      "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/login.css",
+      "PackagePath": "staticwebassets/css/login.css"
     },
     {
-      "Id": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\menu.css",
-      "PackagePath": "staticwebassets\\css\\menu.css"
+      "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/menu.css",
+      "PackagePath": "staticwebassets/css/menu.css"
     },
     {
-      "Id": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\registration.css",
-      "PackagePath": "staticwebassets\\css\\registration.css"
+      "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/registration.css",
+      "PackagePath": "staticwebassets/css/registration.css"
     },
     {
-      "Id": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\style.css",
-      "PackagePath": "staticwebassets\\css\\style.css"
+      "Id": "/Users/amorqww/RiderProjects/PizzaViewModel/Domain/wwwroot/css/style.css",
+      "PackagePath": "staticwebassets/css/style.css"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Domain.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Domain.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Domain.props",
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.Domain.props",
       "PackagePath": "build\\Domain.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Domain.props",
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Domain.props",
       "PackagePath": "buildMultiTargeting\\Domain.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Domain.props",
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Domain.props",
       "PackagePath": "buildTransitive\\Domain.props"
     }
   ],

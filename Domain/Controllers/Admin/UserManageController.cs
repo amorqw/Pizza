@@ -2,6 +2,7 @@ using Core.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Core.Dto.Pizza;
 using Core.Interfaces;
+using Core.Interfaces.Auth;
 using Core.Models;
 
 namespace Pizza.Controllers.Admin
@@ -9,10 +10,12 @@ namespace Pizza.Controllers.Admin
     public class UserManageController : Controller
     {
         private readonly IUser _userService;
+        private readonly IPasswordHasher _passwordHasher;
 
-        public UserManageController(IUser userService)
+        public UserManageController(IUser userService, IPasswordHasher passwordHasher)
         {
             _userService = userService;
+            _passwordHasher= passwordHasher;
         }
 
         [HttpGet]
@@ -78,7 +81,16 @@ namespace Pizza.Controllers.Admin
         {
             if (ModelState.IsValid)
             {
-                var newUser = await _userService.CreateUser(users);
+                var userWithPassword = new Users()
+                {
+                    UserId = users.UserId,
+                    Password = _passwordHasher.Generate(users.Password),
+                    Name = users.Name,
+                    SurName = users.SurName,
+                    Email = users.Email,
+                    Phone = users.Phone
+                };
+                var newUser = await _userService.CreateUser(userWithPassword);
                 if (newUser != null)
                 {
                     return RedirectToAction("ManageUser");

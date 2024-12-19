@@ -11,12 +11,14 @@ namespace Pizza.Controllers
         private readonly IOrders _ordersService;
         private readonly IOrderItems _orderItemsService;
         private readonly IReviews _reviewsService;
+        private readonly IStaff _staffService;
 
-        public OrderController(IOrders ordersService, IOrderItems orderItemsService, IReviews reviewsService)
+        public OrderController(IOrders ordersService, IOrderItems orderItemsService, IReviews reviewsService, IStaff staffService)
         {
             _ordersService = ordersService;
             _orderItemsService = orderItemsService;
             _reviewsService = reviewsService;
+            _staffService = staffService;
         }
 
         [HttpPost]
