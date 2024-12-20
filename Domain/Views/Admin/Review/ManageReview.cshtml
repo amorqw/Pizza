@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Review</title>
-    <link href="~/css/admin.css" rel="stylesheet" />
+    <link href="~/css/admin.css" rel="stylesheet"/>
 </head>
 <body>
 <header>
@@ -31,11 +31,21 @@
             foreach (var review in Model)
             {
                 <div class="pizza-card">
-                    <p><strong>userid</strong> @review.UserId</p>
-                    <p><strong>OrderId</strong> @review.OrderId</p>
-                    <p><strong>Рейтинг</strong> @review.Rating</p>
-                    <p><strong>Отзыв</strong> @review.Comment</p>
-                    <p><strong>Дата отзыва</strong> @review.ReviewDate</p>
+                    <p>
+                        <strong>userid</strong> @review.UserId
+                    </p>
+                    <p>
+                        <strong>OrderId</strong> @review.OrderId
+                    </p>
+                    <p>
+                        <strong>Рейтинг</strong> @review.Rating
+                    </p>
+                    <p>
+                        <strong>Отзыв</strong> @review.Comment
+                    </p>
+                    <p>
+                        <strong>Дата отзыва</strong> @review.ReviewDate
+                    </p>
                     <div class="pizza-actions">
                         <a href="/Admin/EditReview?pizzaId=@review.PizzaId&userId=@review.UserId&orderId=@review.OrderId" class="btn">Edit</a>
                         <form action="/Admin/DeleteReview?pizzaId=@review.PizzaId&userId=@review.UserId&orderId=@review.OrderId" method="post" style="display:inline;">
@@ -53,7 +63,7 @@
 </main>
 
 <footer>
-    <p>&copy; 2024 Pizza World Admin Panel</p>
+    <p>:)</p>
 </footer>
 
 </body>

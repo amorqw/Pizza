@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Pizzas</title>
-    <link href="~/css/admin.css" rel="stylesheet" />
+    <link href="~/css/admin.css" rel="stylesheet"/>
 </head>
 <body>
 <header>
@@ -32,10 +32,18 @@
             {
                 <div class="pizza-card">
                     <h3>@pizza.Title</h3>
-                    <p><strong>Description:</strong> @pizza.Description</p>
-                    <p><strong>Price:</strong> @pizza.Price</p>
-                    <p><strong>Size:</strong> @pizza.Size</p>
-                    <p><strong>Receipt:</strong> @pizza.Receipt</p>
+                    <p>
+                        <strong>Description:</strong> @pizza.Description
+                    </p>
+                    <p>
+                        <strong>Price:</strong> @pizza.Price
+                    </p>
+                    <p>
+                        <strong>Size:</strong> @pizza.Size
+                    </p>
+                    <p>
+                        <strong>Receipt:</strong> @pizza.Receipt
+                    </p>
                     <div class="pizza-actions">
                         <a href="/Admin/EditPizza/@pizza.PizzaId" class="btn">Edit</a>
                         <form action="/Admin/DeletePizza/@pizza.PizzaId" method="post" style="display:inline;">
@@ -54,7 +62,7 @@
 </main>
 
 <footer>
-    <p>&copy; 2024 Pizza World Admin Panel</p>
+    <p>:)</p>
 </footer>
 
 </body>

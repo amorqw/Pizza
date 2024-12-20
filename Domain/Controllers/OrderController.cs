@@ -24,7 +24,6 @@ namespace Pizza.Controllers
         [HttpPost]
         public async Task<IActionResult> Submit(string address, string paymentMethod)
         {
-            Console.WriteLine("Submit order action started");
 
             var userId = int.Parse(User.FindFirst("UserId")?.Value);
             var order = HttpContext.Session.GetObject<List<(int PizzaId, int Quantity)>>("Order") ??
@@ -32,11 +31,14 @@ namespace Pizza.Controllers
 
             if (order == null || !order.Any())
             {
-                Console.WriteLine("Order is empty or null");
                 return RedirectToAction("Menu", "PizzeriaPizza");
             }
 
-            var staffId = 1;
+            var random = new Random();
+            var staffList = await _staffService.GetAllStaff();
+            var randomStaff = staffList.ElementAt(random.Next(staffList.Count()));
+            
+            var staffId = randomStaff.StaffId;
             var newOrder = new OrderDto()
             {
                 UserId = userId,
@@ -52,11 +54,8 @@ namespace Pizza.Controllers
             if (orderCreated != null)
             {
                 var orderId = orderCreated.Value;
-
-                // Сохраняем OrderId в сессии
+                //
                 HttpContext.Session.SetInt32("OrderId", orderId);
-
-                Console.WriteLine($"Order created with OrderId: {orderId}");
 
                 foreach (var item in order)
                 {
@@ -68,13 +67,11 @@ namespace Pizza.Controllers
                     };
                     await _orderItemsService.CreateOrderItem(orderItem);
 
-                    Console.WriteLine($"Order item added: PizzaId = {item.PizzaId}, Quantity = {item.Quantity}");
                 }
 
                 return View("~/Views/OrderConfirmation.cshtml");
             }
 
-            Console.WriteLine("Failed to create order");
             return View("Error");
         }
 
@@ -101,21 +98,17 @@ namespace Pizza.Controllers
             var order = HttpContext.Session.GetObject<List<(int PizzaId, int Quantity)>>("Order");
             if (order == null || !order.Any())
             {
-                Console.WriteLine("Order is empty or null for review submission");
                 return RedirectToAction("Menu", "PizzeriaPizza");
             }
 
             var orderItem = order.FirstOrDefault();
             if (orderItem.Equals(default((int PizzaId, int Quantity))))
             {
-                Console.WriteLine("No valid order item found for review submission");
                 return View("Error");
             }
 
-            // Используем правильный OrderId, который был сохранен в сессии
             var orderId = HttpContext.Session.GetInt32("OrderId") ?? 0;
 
-            // Проверка, существует ли заказ с данным OrderId
             var orderExists = await _ordersService.GetOrderById(orderId) != null;
             if (!orderExists)
             {
@@ -125,7 +118,7 @@ namespace Pizza.Controllers
 
             var reviewDto = new ReviewDto
             {
-                OrderId = orderId,  // Используем правильный OrderId
+                OrderId = orderId,  
                 PizzaId = orderItem.PizzaId,
                 UserId = userId,
                 Rating = rating,
@@ -135,11 +128,9 @@ namespace Pizza.Controllers
             var result = await _reviewsService.AddReview(reviewDto);
             if (result)
             {
-                Console.WriteLine("Review submitted successfully");
                 return RedirectToAction("Index", "Home");
             }
 
-            Console.WriteLine("Failed to submit review");
             return View("~/Views/Home/Home.cshtml");
         }
     }
