@@ -14,7 +14,6 @@ public class PizzasAvailableService : IPizzasAvailable
         {
             await connection.OpenAsync();
         
-            // Запрос, который извлекает доступные пиццы для пиццерии
             const string query = @"
             SELECT p.PizzaId, p.Title, p.Description, p.Price, p.Size, p.Receipt
             FROM Pizzas p

@@ -64,7 +64,6 @@ builder.Services.AddScoped<IAuth, AuthService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<IOrders,OrdersService>();
 builder.Services.AddScoped<IPizzas, PizzaService>();
-builder.Services.AddScoped<PizzaIngredientsService>();
 builder.Services.AddScoped<StaffService>();
 builder.Services.AddScoped<IPizzasAvailable, PizzasAvailableService>();
 builder.Services.AddScoped<IOrderItems, OrderItemsService>();

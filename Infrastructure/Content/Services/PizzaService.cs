@@ -50,13 +50,12 @@ public class PizzaService : IPizzas
 
             string sql = @"insert into Pizzas (Title, Description, Price, Size, Receipt) 
                        values (@Title, @Description, @Price, @Size, @Receipt) 
-                       returning PizzaId";  
+                       returning PizzaId";
 
             var newPizzaId = await connection.QueryFirstOrDefaultAsync<int>(sql, pizza);
 
             if (newPizzaId > 0)
             {
-                
                 string selectSql = @"select PizzaId, Title, Description, Price, Size, Receipt 
                                  from Pizzas 
                                  where PizzaId = @PizzaId";
@@ -106,15 +105,15 @@ public class PizzaService : IPizzas
             return await connection.ExecuteAsync(sql, new { PizzaId = Pizzaid }) > 0;
         }
     }
-    public async Task<IEnumerable<Pizzas>> GetAllPizzasAsync(string orderBy = "Price", string sortDirection = "ASC", string size = null)
+
+    public async Task<IEnumerable<Pizzas>> GetAllPizzasAsync(string orderBy = "Price", string sortDirection = "ASC",
+        string size = null)
     {
-        // Сортировка по цене или названию и направление сортировки
         var sortByColumn = orderBy == "Name" ? "Title" : "Price";
         var orderDirection = sortDirection.ToUpper() == "DESC" ? "DESC" : "ASC";
 
-        // Фильтрация по размеру пиццы
         var sizeFilter = string.IsNullOrEmpty(size) ? "" : "WHERE Size = @Size";
-    
+
         const string queryTemplate = @"
         SELECT 
             PizzaId, 
@@ -135,6 +134,4 @@ public class PizzaService : IPizzas
             return await connection.QueryAsync<Pizzas>(query, new { Size = size });
         }
     }
-
-    
 }

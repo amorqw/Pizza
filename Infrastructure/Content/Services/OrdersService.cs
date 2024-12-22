@@ -59,25 +59,17 @@ namespace Infrastructure.Content.Services
                 {
                     await connection.OpenAsync();
 
-                    // Логируем параметры
-                    Console.WriteLine($"UserId: {order.UserId}, StaffId: {order.StaffId}, Date: {order.Date}, Status: {order.Status}, Address: {order.Address}, PaymentMethod: {order.PaymentMethod}");
-
-                    string sql = @"
+                 string sql = @"
             INSERT INTO Orders (UserId, StaffId, Date, Status, Address, PaymentMethod) 
             VALUES (@UserId, @StaffId, @Date, @Status, @Address, @PaymentMethod) 
             RETURNING OrderId";
 
                     var orderId = await connection.ExecuteScalarAsync<int?>(sql, order);
-
-                    Console.WriteLine($"Returned OrderId: {orderId}");
-
-                    return orderId;
+                   return orderId;
                 }
             }
             catch (Exception ex)
             {
-                // Логируем ошибку
-                Console.WriteLine($"Error: {ex.Message}");
                 return null;
             }
         }

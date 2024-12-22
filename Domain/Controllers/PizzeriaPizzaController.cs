@@ -32,7 +32,6 @@ public class PizzeriaPizzaController : Controller
             pizzas.Add(pizza);
         }
 
-        // Применение сортировки и фильтрации
         pizzas = pizzas.Where(p => string.IsNullOrEmpty(size) || p.Size.Equals(size, StringComparison.OrdinalIgnoreCase))
             .OrderBy(p => orderBy == "Name" ? p.Title : p.Price.ToString())
             .ToList();
@@ -74,7 +73,6 @@ public class PizzeriaPizzaController : Controller
 
     public async Task<IActionResult> Checkout()
     {
-        // Извлечение заказа из сессии
         var order = HttpContext.Session.GetObject<List<(int PizzaId, int Quantity)>>("Order");
         if (order == null || !order.Any())
         {

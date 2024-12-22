@@ -54,7 +54,6 @@ namespace Pizza.Controllers
             if (orderCreated != null)
             {
                 var orderId = orderCreated.Value;
-                //
                 HttpContext.Session.SetInt32("OrderId", orderId);
 
                 foreach (var item in order)
@@ -81,18 +80,15 @@ namespace Pizza.Controllers
             var order = HttpContext.Session.GetObject<List<(int PizzaId, int Quantity)>>("Order");
             if (order == null || !order.Any())
             {
-                Console.WriteLine("Order is empty or null for review");
                 return RedirectToAction("Menu", "PizzeriaPizza");
             }
 
-            Console.WriteLine("Leave review view displayed");
             return View("~/Views/LeaveReview.cshtml", order);
         }
 
         [HttpPost]
         public async Task<IActionResult> SubmitReview(int rating, string comment)
         {
-            Console.WriteLine("Submit review action started");
 
             var userId = int.Parse(User.FindFirst("UserId")?.Value);
             var order = HttpContext.Session.GetObject<List<(int PizzaId, int Quantity)>>("Order");
@@ -112,7 +108,6 @@ namespace Pizza.Controllers
             var orderExists = await _ordersService.GetOrderById(orderId) != null;
             if (!orderExists)
             {
-                Console.WriteLine($"Order with OrderId {orderId} does not exist");
                 return View("Error");
             }
 

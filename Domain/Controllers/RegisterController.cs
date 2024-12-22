@@ -8,7 +8,7 @@ namespace Pizza.Controllers
     [Route("api/[controller]")]
     public class RegisterController : Controller
     {
-        private readonly IAuth _authService; 
+        private readonly IAuth _authService;
 
         public RegisterController(IAuth authService)
         {
@@ -27,9 +27,9 @@ namespace Pizza.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState); 
+                return BadRequest(ModelState);
             }
-            
+
 
             try
             {
@@ -41,29 +41,5 @@ namespace Pizza.Controllers
                 return StatusCode(500, new { Message = "Internal server error", Details = ex.Message });
             }
         }
-
-
-        /*[HttpPost("/login")]
-        public async Task<IActionResult> LoginUser(LoginUserDto request)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState); 
-            }
-
-            try
-            {
-                var token = await _authService.Login(request.Email, request.Password);
-                return Ok(new { Token = token });
-            }
-            catch (UnauthorizedAccessException)
-            {
-                return Unauthorized(new { Message = "Invalid credentials" });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { Message = "Internal server error", Details = ex.Message });
-            }
-        } */
     }
 }
