@@ -31,12 +31,12 @@ namespace Pizza.Controllers.Admin
         {
             var services = await _repairOrderService.GetAllServices();
             ViewBag.Services = services;
-            return View("~/Views/Admin/RepairOrder/AddRepairOrder.cshtml", new RepairOrderDto());
+            return View("~/Views/Admin/RepairOrder/AddRepairOrder.cshtml", new AdminCreateRepairOrderDto());
         }
 
         [HttpPost]
         [Route("Admin/AddRepairOrder")]
-        public async Task<IActionResult> AddRepairOrder(RepairOrderDto dto)
+        public async Task<IActionResult> AddRepairOrder(AdminCreateRepairOrderDto dto)
         {
             if (ModelState.IsValid)
             {
@@ -45,7 +45,7 @@ namespace Pizza.Controllers.Admin
                     if (Guid.TryParse(Request.Form["ServiceId"].ToString(), out Guid serviceId))
                     {
                         dto.ServiceId = serviceId;
-                        var order = await _repairOrderService.CreateRepairOrder(dto, Guid.Empty);
+                        var order = await _repairOrderService.CreateAdminRepairOrder(dto);
                         if (order != null)
                         {
                             return RedirectToAction("ManageRepairOrders");
@@ -77,14 +77,26 @@ namespace Pizza.Controllers.Admin
                 return NotFound();
             }
 
+            var adminDto = new AdminCreateRepairOrderDto
+            {
+                IdOrder = order.IdOrder,
+                ServiceId = order.IdService,
+                UserId = order.IdUser,
+                CarModel = order.CarModel,
+                CarRegistrationNumber = order.CarRegistrationNumber,
+                ProblemDescription = order.ProblemDescription,
+                DateTime = order.DateTime ?? DateTime.Now,
+                Status = order.Status ?? "Pending"
+            };
+
             var services = await _repairOrderService.GetAllServices();
             ViewBag.Services = services;
-            return View("~/Views/Admin/RepairOrder/EditRepairOrder.cshtml", order);
+            return View("~/Views/Admin/RepairOrder/EditRepairOrder.cshtml", adminDto);
         }
 
         [HttpPost]
         [Route("Admin/UpdateRepairOrder/{id}")]
-        public async Task<IActionResult> UpdateRepairOrder(RepairOrderDto orderDto, Guid id)
+        public async Task<IActionResult> UpdateRepairOrder(AdminCreateRepairOrderDto orderDto, Guid id)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +105,7 @@ namespace Pizza.Controllers.Admin
                     if (Guid.TryParse(Request.Form["ServiceId"].ToString(), out Guid serviceId))
                     {
                         orderDto.ServiceId = serviceId;
-                        var updatedOrder = await _repairOrderService.UpdateOrder(orderDto, id);
+                        var updatedOrder = await _repairOrderService.UpdateAdminOrder(orderDto, id);
                         if (updatedOrder != null)
                         {
                             return RedirectToAction("ManageRepairOrders");

@@ -33,6 +33,62 @@ public class RepairOrderService : IRepairOrderService
         }
     }
 
+    public async Task<RepairOrder> CreateAdminRepairOrder(AdminCreateRepairOrderDto dto)
+    {
+        using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+        {
+            await connection.OpenAsync();
+            string sql = @"
+                INSERT INTO repairorder (id_order, id_service, id_user, car_model, car_registration_number, problem_description, datetime, status)
+                VALUES (@IdOrder, @ServiceId, @UserId, @CarModel, @CarRegistrationNumber, @ProblemDescription, @DateTime, @Status)
+                RETURNING *";
+            
+            return await connection.QueryFirstOrDefaultAsync<RepairOrder>(sql, new
+            {
+                IdOrder = Guid.NewGuid(),
+                ServiceId = dto.ServiceId,
+                UserId = dto.UserId,
+                CarModel = dto.CarModel,
+                CarRegistrationNumber = dto.CarRegistrationNumber,
+                ProblemDescription = dto.ProblemDescription,
+                DateTime = dto.DateTime,
+                Status = dto.Status
+            });
+        }
+    }
+
+    public async Task<RepairOrder> UpdateAdminOrder(AdminCreateRepairOrderDto orderDto, Guid id)
+    {
+        using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
+        {
+            await connection.OpenAsync();
+            string sql = @"
+                UPDATE repairorder
+                SET 
+                    id_service = @ServiceId,
+                    id_user = @UserId,
+                    car_model = @CarModel,
+                    car_registration_number = @CarRegistrationNumber,
+                    problem_description = @ProblemDescription,
+                    datetime = @DateTime,
+                    status = @Status
+                WHERE id_order = @Id
+                RETURNING *";
+            
+            return await connection.QueryFirstOrDefaultAsync<RepairOrder>(sql, new
+            {
+                Id = id,
+                ServiceId = orderDto.ServiceId,
+                UserId = orderDto.UserId,
+                CarModel = orderDto.CarModel,
+                CarRegistrationNumber = orderDto.CarRegistrationNumber,
+                ProblemDescription = orderDto.ProblemDescription,
+                DateTime = orderDto.DateTime,
+                Status = orderDto.Status
+            });
+        }
+    }
+
     public async Task<IEnumerable<Service>> GetAllServices()
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))

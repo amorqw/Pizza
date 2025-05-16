@@ -1,4 +1,7 @@
-@model Core.Models.RepairOrder
+@model Core.Dto.RepairOrder.AdminCreateRepairOrderDto
+@{
+    var services = ViewBag.Services as IEnumerable<Core.Models.Service>;
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,12 +29,30 @@
 <main>
     <h3>Редактирование заказа #@Model.IdOrder</h3>
     <form action="/Admin/UpdateRepairOrder/@Model.IdOrder" method="post">
-        <input type="hidden" name="IdOrder" value="@Model.IdOrder" />
+        <div>
+            <label for="UserId">ID пользователя:</label>
+            <input type="text" id="UserId" name="UserId" value="@Model.UserId" required />
+        </div>
         <div>
             <label for="DateTime">Дата и время:</label>
             <input type="datetime-local" id="DateTime" name="DateTime" 
                    value="@(Model.DateTime != default ? Model.DateTime.ToString() : DateTime.Now.ToString("yyyy-MM-ddTHH:mm"))" 
                    required />
+        </div>
+        <div>
+            <label for="ServiceId">Услуга:</label>
+            <select id="ServiceId" name="ServiceId" required>
+                <option value="">-- Выберите услугу --</option>
+                @if (services != null)
+                {
+                    foreach (var service in services)
+                    {
+                        <option value="@service.IdService.ToString()" @(service.IdService == Model.ServiceId ? "selected" : "")>
+                            @service.ServiceName - @service.Cost руб.
+                        </option>
+                    }
+                }
+            </select>
         </div>
         <div>
             <label for="CarModel">Модель автомобиля:</label>

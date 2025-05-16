@@ -1,4 +1,4 @@
-@model Core.Dto.RepairOrder.RepairOrderDto
+@model Core.Dto.RepairOrder.AdminCreateRepairOrderDto
 @{
     ViewData["Title"] = "Добавление заказа";
     var services = ViewBag.Services as IEnumerable<Core.Models.Service>;
@@ -29,6 +29,10 @@
 
 <main>
     <form action="/Admin/AddRepairOrder" method="post">
+        <div>
+            <label for="UserId">ID пользователя:</label>
+            <input type="text" id="UserId" name="UserId" required />
+        </div>
         <div>
             <label for="DateTime">Дата и время:</label>
             <input type="datetime-local" id="DateTime" name="DateTime" required />
