@@ -1,0 +1,60 @@
+@model IEnumerable<Core.Models.RepairOrder>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление заказами на ремонт</title>
+    <link href="~/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Управление заказами на ремонт</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManagePizzaAvailable">Manage PizzasAvailable</a>
+        <a href="/Admin/ManageStaffs">Manage Staffs</a>
+        <a href="/Admin/ManageReview">Manage Reviews</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+        <a href="/Admin/ManageOrderItems">Manage OrderItems</a>
+        <a href="/Admin/ManageUser">Manage Users</a>
+    </nav>
+</header>
+
+<main>
+    <a href="/Admin/AddRepairOrder" class="btn-add" style="display: inline-block; margin: 20px; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px;">Добавить новый заказ</a>
+    <div class="pizza-cards-container">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var order in Model)
+            {
+                <div class="pizza-card">
+                    <h3>Заказ #@order.IdOrder</h3>
+                    <p><strong>Дата и время:</strong> @(order.DateTime != default ? order.DateTime.ToString() : "Не указано")</p>
+                    <p><strong>Модель авто:</strong> @order.CarModel</p>
+                    <p><strong>Гос. номер:</strong> @order.CarRegistrationNumber</p>
+                    <p><strong>Статус:</strong> @order.Status</p>
+                    <div class="pizza-actions">
+                        <a href="/Admin/EditRepairOrder/@order.IdOrder" class="btn">Редактировать</a>
+                        <form action="/Admin/DeleteRepairOrder/@order.IdOrder" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Заказы не найдены</p>
+        }
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Pizza World Admin Panel</p>
+</footer>
+
+</body>
+</html> 

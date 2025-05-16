@@ -30,15 +30,22 @@ namespace Pizza.Controllers
                 return BadRequest(ModelState);
             }
 
-
             try
             {
-                await _authService.Register(request.SurName, request.Email, request.Password, request.Phone);
+                await _authService.Register(
+                    request.FirstName,
+                    request.LastName,
+                    request.MiddleName,
+                    request.Email,
+                    request.Password,
+                    request.Phone,
+                    request.IdRole
+                );
                 return RedirectToAction("Index", "Login");
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "Internal server error", Details = ex.Message });
+                return StatusCode(500, new { Message = "Внутренняя ошибка сервера", Details = ex.Message });
             }
         }
     }

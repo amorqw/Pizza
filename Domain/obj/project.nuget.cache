@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GrDUU9OtNlw=",
+  "dgSpecHash": "cZc+ZZTyaE8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kirill\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\kirill\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",

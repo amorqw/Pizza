@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nGRRRMRBxuGIuoShO9hLsJbqVC3ufJZWjSz+r0yoZRs=",
+  "Hash": "Eu/Q3yvQCVBHyPArWb7gwou74XyrFVIaieBMzcS7Gq4=",
   "Source": "Domain",
   "BasePath": "_content/Domain",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Domain\\wwwroot",
       "Source": "Domain",
-      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\add.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\css\\add.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/add.css",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\css\\add.css"
     },
     {
-      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\admin.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\css\\admin.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/admin.css",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\css\\admin.css"
     },
     {
-      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\checkout.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\css\\checkout.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/checkout.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\css\\checkout.css"
     },
     {
-      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\edit.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\css\\edit.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/edit.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\css\\edit.css"
     },
     {
-      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\home.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\css\\home.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/home.css",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\css\\home.css"
     },
     {
-      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\leave.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\css\\leave.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/leave.css",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\css\\leave.css"
     },
     {
-      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\login.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\css\\login.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/login.css",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
-      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\menu.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\css\\menu.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/menu.css",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\css\\menu.css"
     },
     {
-      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\registration.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\css\\registration.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/registration.css",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\css\\registration.css"
     },
     {
-      "Identity": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\css\\style.css",
+      "Identity": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\css\\style.css",
       "SourceId": "Domain",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Domain\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Domain\\wwwroot\\",
       "BasePath": "_content/Domain",
       "RelativePath": "css/style.css",
       "AssetKind": "All",

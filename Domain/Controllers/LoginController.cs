@@ -32,6 +32,17 @@ public class LoginController : Controller
         try
         {
             var token = await _authService.Login(request.Email, request.Password);
+            
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Expires = DateTime.Now.AddDays(7),
+                Path = "/",
+                IsEssential = true
+            };
+
+            Response.Cookies.Append("tasty-cookies", token, cookieOptions);
+            
             return RedirectToAction("Index", "Home");
         }
         catch (UnauthorizedAccessException)

@@ -1,4 +1,3 @@
-
 using System.Text;
 using Core;
 using Core.Interfaces;
@@ -76,6 +75,7 @@ builder.Services.AddScoped<IReviews, RewiewService>();
 builder.Services.AddScoped<OrderItemsService>();
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
+builder.Services.AddScoped<IRepairOrderService, RepairOrderService>();
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(nameof(JwtOptions)));
 builder.Services.AddControllers();
 

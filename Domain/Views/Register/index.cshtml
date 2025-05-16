@@ -1,6 +1,6 @@
 @model Core.Dto.User.RegisterUserDto
 @{
-ViewData["Title"] = "Registration";
+ViewData["Title"] = "Регистрация";
 }
 
 <!DOCTYPE html>
@@ -13,31 +13,35 @@ ViewData["Title"] = "Registration";
 </head>
 <body>
 <div class="container">
-    <h1>Create Your Account</h1>
+    <h1>Создание аккаунта</h1>
     <form action="/Register" method="post">
         <div class="form-group">
             <label for="Email">Email</label>
             <input name="Email" value="@Model.Email" required />
         </div>
         <div class="form-group">
-            <label for="Password">Password</label>
+            <label for="Password">Пароль</label>
             <input type="password" name="Password" required />
         </div>
         <div class="form-group">
-            <label for="Phone">Phone Number</label>
+            <label for="Phone">Номер телефона</label>
             <input name="Phone" value="@Model.Phone" required />
         </div>
         <div class="form-group">
-            <label for="Name">First Name</label>
-            <input name="Name" value="@Model.Name" required />
+            <label for="FirstName">Имя</label>
+            <input name="FirstName" value="@Model.FirstName" required />
         </div>
         <div class="form-group">
-            <label for="SurName">Last Name</label>
-            <input name="SurName" value="@Model.SurName" required />
+            <label for="LastName">Фамилия</label>
+            <input name="LastName" value="@Model.LastName" required />
         </div>
-        <button class="submit-btn" type="submit">Register</button>
+        <div class="form-group">
+            <label for="MiddleName">Отчество</label>
+            <input name="MiddleName" value="@Model.MiddleName" />
+        </div>
+        <button class="submit-btn" type="submit">Зарегистрироваться</button>
     </form>
-    <p>Already have an account? <a href="Login">Login here</a></p>
+    <p>Уже есть аккаунт? <a href="Login">Войти</a></p>
 </div>
 </body>
 </html>

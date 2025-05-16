@@ -1,5 +1,6 @@
 using System.Data;
 using Core.Dto;
+using Core.Dto.User;
 using Core.Interfaces;
 using Core.Interfaces.Auth;
 using Core.Models;
@@ -25,18 +26,19 @@ public class UserService: IUser
             return await connection.QueryAsync<Users>(@"select * from users");
         }
     }
-    public async Task<Users> GetUser(int id )
+
+    public async Task<Users> GetUser(Guid id)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             connection.Open();
             return await connection.QuerySingleOrDefaultAsync<Users>(
-                "SELECT * FROM Users WHERE UserId = @UserId", 
-                new { UserId = id }) ?? new Users();
+                "SELECT * FROM Users WHERE id_user = @IdUser", 
+                new { IdUser = id }) ?? new Users();
         }
     }
 
-    public async Task<Users> UpdateUser(UpdateUserDto userDto, int id)
+    public async Task<Users> UpdateUser(UpdateUserDto userDto, Guid id)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
@@ -44,32 +46,35 @@ public class UserService: IUser
             string sql = @"
             UPDATE Users
             SET  
-                Name = @Name,
-                SurName = @SurName,
-                Email = @Email,
-                Phone = @Phone
-            WHERE UserId = @UserId 
+                first_name = @FirstName,
+                last_name = @LastName,
+                middle_name = @MiddleName,
+                email = @Email,
+                phone = @Phone,
+                id_role = @IdRole
+            WHERE id_user = @IdUser 
             RETURNING *";
         
             return await connection.QueryFirstOrDefaultAsync<Users>(sql, new
             {
-                UserId = id,
-                Name = userDto.Name,
-                SurName = userDto.SurName,
+                IdUser = id,
+                FirstName = userDto.FirstName,
+                LastName = userDto.LastName,
+                MiddleName = userDto.MiddleName,
                 Email = userDto.Email,
-                Phone = userDto.Phone
+                Phone = userDto.Phone,
+                IdRole = userDto.IdRole
             });
         }
     }
-
-
-    public async Task<bool> DeleteUser(int id)
+    
+    public async Task<bool> DeleteUser(Guid id)
     {
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             await connection.OpenAsync();
-            string sql = "DELETE FROM Users WHERE UserId = @userid";
-            var result = await connection.ExecuteAsync(sql, new { UserId = id });
+            string sql = "DELETE FROM Users WHERE id_user = @IdUser";
+            var result = await connection.ExecuteAsync(sql, new { IdUser = id });
             return result > 0;
         }
     }
@@ -79,7 +84,17 @@ public class UserService: IUser
         using (var connection = new NpgsqlConnection(DbHelper.ConnectionString))
         {
             connection.Open();
-            return await connection.QueryFirstOrDefaultAsync<Users>(@"SELECT * FROM users WHERE email = @Email", new { Email = email });
+            return await connection.QueryFirstOrDefaultAsync<Users>(
+                @"SELECT 
+                    id_user AS ""IdUser"",
+                    first_name AS ""FirstName"",
+                    last_name AS ""LastName"",
+                    middle_name AS ""MiddleName"",
+                    phone AS ""Phone"",
+                    email AS ""Email"",
+                    password AS ""Password"",
+                    id_role AS ""IdRole""
+                FROM users WHERE email = @Email", new { Email = email });
         }
     }
 
@@ -89,11 +104,9 @@ public class UserService: IUser
         {
             connection.Open();
             string sql = @"
-                INSERT INTO users (Name, SurName, Email, Role, Password, Phone)
-                VALUES (@name, @Surname, @Email, @Role, @Password, @Phone)";
+                INSERT INTO users (id_user, first_name, last_name, middle_name, email, id_role, password, phone)
+                VALUES (@IdUser, @FirstName, @LastName, @MiddleName, @Email, @IdRole, @Password, @Phone)";
             return await connection.ExecuteAsync(sql, user);
         }
     }
-
-    
 }

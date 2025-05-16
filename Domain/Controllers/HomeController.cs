@@ -1,20 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Core.Interfaces;
+using System.Security.Claims;
 
 namespace Pizza.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IPizzeria _pizzeriaService;
 
         public HomeController(IPizzeria pizzeriaService)
         {
-            _pizzeriaService = pizzeriaService;
         }
         public async Task<IActionResult> Index()
         {
-            var pizzerias = await _pizzeriaService.GetAllPizzerias();
-            ViewBag.Pizzerias = pizzerias;
             var token = Request.Cookies["tasty-cookies"];
             
 
@@ -25,9 +22,9 @@ namespace Pizza.Controllers
             }
 
             var roleClaim = User.Claims.FirstOrDefault(c => 
-                c.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role");
+                c.Type == ClaimTypes.Role);
             var isAdmin = roleClaim != null && 
-                          string.Equals(roleClaim.Value, "Admin", StringComparison.OrdinalIgnoreCase);
+                         roleClaim.Value == "123e4567-e89b-12d3-a456-426614174000"; // UUID роли Admin
 
             ViewBag.IsAdmin = isAdmin;
             

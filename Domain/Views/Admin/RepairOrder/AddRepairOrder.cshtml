@@ -1,0 +1,71 @@
+@model Core.Dto.RepairOrder.RepairOrderDto
+@{
+    ViewData["Title"] = "Добавление заказа";
+    var services = ViewBag.Services as IEnumerable<Core.Models.Service>;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="~/css/edit.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Добавление нового заказа</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManagePizzaAvailable">Manage PizzasAvailable</a>
+        <a href="/Admin/ManageStaffs">Manage Staffs</a>
+        <a href="/Admin/ManageReview">Manage Reviews</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+        <a href="/Admin/ManageOrderItems">Manage OrderItems</a>
+        <a href="/Admin/ManageUser">Manage Users</a>
+    </nav>
+</header>
+
+<main>
+    <form action="/Admin/AddRepairOrder" method="post">
+        <div>
+            <label for="DateTime">Дата и время:</label>
+            <input type="datetime-local" id="DateTime" name="DateTime" required />
+        </div>
+        <div>
+            <label for="ServiceId">Услуга:</label>
+            <select id="ServiceId" name="ServiceId" required>
+                <option value="">-- Выберите услугу --</option>
+                @if (services != null)
+                {
+                    foreach (var service in services)
+                    {
+                        <option value="@service.IdService.ToString()">@service.ServiceName - @service.Cost руб.</option>
+                    }
+                }
+            </select>
+        </div>
+        <div>
+            <label for="CarModel">Модель автомобиля:</label>
+            <input type="text" id="CarModel" name="CarModel" required />
+        </div>
+        <div>
+            <label for="CarRegistrationNumber">Гос. номер:</label>
+            <input type="text" id="CarRegistrationNumber" name="CarRegistrationNumber" required />
+        </div>
+        <div>
+            <label for="ProblemDescription">Описание проблемы:</label>
+            <textarea id="ProblemDescription" name="ProblemDescription" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn">Создать заказ</button>
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2024 Pizza World Admin Panel</p>
+</footer>
+
+</body>
+</html> 

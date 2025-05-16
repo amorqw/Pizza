@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OtiA3EyhUvI=",
+  "dgSpecHash": "4zJbRdTrm5w=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kirill\\RiderProjects\\GITPIZZA\\Pizza\\Core\\Core.csproj",
+  "projectFilePath": "C:\\Users\\kirill\\RiderProjects\\Pizza\\Core\\Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kirill\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\kirill\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.6\\microsoft.aspnetcore.authentication.jwtbearer.8.0.6.nupkg.sha512",

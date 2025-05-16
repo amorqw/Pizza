@@ -10,11 +10,14 @@ public class AuthMapper
     {
         return new Users()
         {
+            IdUser = Guid.NewGuid(),
             Email = model.Email!,
             Password = model.Password!,
-            SurName = model.SurName,
-            Name = model.Name,
-            Phone = model.Phone
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+            MiddleName = model.MiddleName,
+            Phone = model.Phone,
+            IdRole = model.IdRole
         };
     }
 }

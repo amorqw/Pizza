@@ -1,6 +1,6 @@
 using Core.Dto;
+using Core.Dto.User;
 using Microsoft.AspNetCore.Mvc;
-using Core.Dto.Pizza;
 using Core.Interfaces;
 using Core.Interfaces.Auth;
 using Core.Models;
@@ -15,7 +15,7 @@ namespace Pizza.Controllers.Admin
         public UserManageController(IUser userService, IPasswordHasher passwordHasher)
         {
             _userService = userService;
-            _passwordHasher= passwordHasher;
+            _passwordHasher = passwordHasher;
         }
 
         [HttpGet]
@@ -28,7 +28,7 @@ namespace Pizza.Controllers.Admin
 
         [HttpGet]
         [Route("Admin/EditUser/{id}")]
-        public async Task<IActionResult> EditUser(int id)
+        public async Task<IActionResult> EditUser(Guid id)
         {
             var user = await _userService.GetUser(id);
             if (user == null)
@@ -38,11 +38,13 @@ namespace Pizza.Controllers.Admin
 
             var userDto = new UpdateUserDto
             {
-                UserId = user.UserId,
-                Name = user.Name,
-                SurName = user.SurName,
+                IdUser = user.IdUser,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                MiddleName = user.MiddleName,
                 Email = user.Email,
-                Phone = user.Phone
+                Phone = user.Phone,
+                IdRole = user.IdRole
             };
 
             return View("~/Views/Admin/User/EditUser.cshtml", userDto);
@@ -50,7 +52,7 @@ namespace Pizza.Controllers.Admin
 
         [HttpPost]
         [Route("Admin/UpdateUser/{id}")]
-        public async Task<IActionResult> UpdateUser(UpdateUserDto userDto, int id)
+        public async Task<IActionResult> UpdateUser(UpdateUserDto userDto, Guid id)
         {
             if (ModelState.IsValid)
             {
@@ -61,7 +63,7 @@ namespace Pizza.Controllers.Admin
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Failed to update pizza.");
+                    ModelState.AddModelError(string.Empty, "Не удалось обновить пользователя.");
                 }
             }
             return View("~/Views/Admin/User/EditUser.cshtml", userDto);
@@ -71,41 +73,43 @@ namespace Pizza.Controllers.Admin
         [Route("Admin/AddUser")]
         public IActionResult AddUser()
         {
-            var userDto = new PizzaDto();  
-            return View("~/Views/Admin/User/AddUser.cshtml"); 
+            return View("~/Views/Admin/User/AddUser.cshtml", new RegisterUserDto()); 
         }
 
         [HttpPost]
         [Route("Admin/AddUser")]
-        public async Task<IActionResult> AddUser(Users users)
+        public async Task<IActionResult> AddUser(RegisterUserDto userDto)
         {
             if (ModelState.IsValid)
             {
-                var userWithPassword = new Users()
+                var user = new Users
                 {
-                    UserId = users.UserId,
-                    Password = _passwordHasher.Generate(users.Password),
-                    Name = users.Name,
-                    SurName = users.SurName,
-                    Email = users.Email,
-                    Phone = users.Phone
+                    IdUser = Guid.NewGuid(),
+                    FirstName = userDto.FirstName,
+                    LastName = userDto.LastName,
+                    MiddleName = userDto.MiddleName,
+                    Email = userDto.Email,
+                    Password = _passwordHasher.Generate(userDto.Password!),
+                    Phone = userDto.Phone,
+                    IdRole = userDto.IdRole
                 };
-                var newUser = await _userService.CreateUser(userWithPassword);
-                if (newUser != null)
+
+                var newUser = await _userService.CreateUser(user);
+                if (newUser > 0)
                 {
                     return RedirectToAction("ManageUser");
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Failed to add pizza.");
+                    ModelState.AddModelError(string.Empty, "Не удалось добавить пользователя.");
                 }
             }
-            return View("~/Views/Admin/User/AddUser.cshtml");
+            return View("~/Views/Admin/User/AddUser.cshtml", userDto);
         }
 
         [HttpPost]
         [Route("Admin/DeleteUser/{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteUser(Guid id)
         {
             var success = await _userService.DeleteUser(id);
             if (success)
@@ -114,7 +118,7 @@ namespace Pizza.Controllers.Admin
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Failed to delete pizza.");
+                ModelState.AddModelError(string.Empty, "Не удалось удалить пользователя.");
                 return RedirectToAction("ManageUser");
             }
         }

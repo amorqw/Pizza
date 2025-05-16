@@ -9,139 +9,143 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Pizza
 build_property.RootNamespace = Pizza
-build_property.ProjectDir = C:\Users\kirill\RiderProjects\GITPIZZA\Pizza\Domain\
+build_property.ProjectDir = C:\Users\kirill\RiderProjects\Pizza\Domain\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\kirill\RiderProjects\GITPIZZA\Pizza\Domain
+build_property.MSBuildProjectDirectory = C:\Users\kirill\RiderProjects\Pizza\Domain
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/AdminPanel.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/AdminPanel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5QYW5lbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/OrderItems/AddOrderItems.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/OrderItems/AddOrderItems.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJJdGVtc1xBZGRPcmRlckl0ZW1zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/OrderItems/EditOrderItems.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/OrderItems/EditOrderItems.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJJdGVtc1xFZGl0T3JkZXJJdGVtcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/OrderItems/ManageOrderItems.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/OrderItems/ManageOrderItems.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJJdGVtc1xNYW5hZ2VPcmRlckl0ZW1zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Order/AddOrder.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Order/AddOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJcQWRkT3JkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Order/EditOrder.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Order/EditOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJcRWRpdE9yZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Order/ManageOrders.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Order/ManageOrders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJcTWFuYWdlT3JkZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/PizzaAvailable/AddPizzaAvailable.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/PizzaAvailable/AddPizzaAvailable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGl6emFBdmFpbGFibGVcQWRkUGl6emFBdmFpbGFibGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/PizzaAvailable/EditPizzaAvailable.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/PizzaAvailable/EditPizzaAvailable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGl6emFBdmFpbGFibGVcRWRpdFBpenphQXZhaWxhYmxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/PizzaAvailable/ManagePizzaAvailable.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/PizzaAvailable/ManagePizzaAvailable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGl6emFBdmFpbGFibGVcTWFuYWdlUGl6emFBdmFpbGFibGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Pizza/AddPizza.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Pizza/AddPizza.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGl6emFcQWRkUGl6emEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Pizza/EditPizza.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Pizza/EditPizza.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGl6emFcRWRpdFBpenphLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Pizza/ManagePizzas.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Pizza/ManagePizzas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGl6emFcTWFuYWdlUGl6emFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Pizzeria/AddPizzeria.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Pizzeria/AddPizzeria.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGl6emVyaWFcQWRkUGl6emVyaWEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Pizzeria/EditPizzeria.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Pizzeria/EditPizzeria.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGl6emVyaWFcRWRpdFBpenplcmlhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Pizzeria/ManagePizzeria.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Pizzeria/ManagePizzeria.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGl6emVyaWFcTWFuYWdlUGl6emVyaWEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Review/AddReview.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/RepairOrder/AddRepairOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVwYWlyT3JkZXJcQWRkUmVwYWlyT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/RepairOrder/EditRepairOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVwYWlyT3JkZXJcRWRpdFJlcGFpck9yZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/RepairOrder/ManageRepairOrders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVwYWlyT3JkZXJcTWFuYWdlUmVwYWlyT3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Review/AddReview.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmV2aWV3XEFkZFJldmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Review/EditReview.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Review/EditReview.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmV2aWV3XEVkaXRSZXZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Review/ManageReview.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Review/ManageReview.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmV2aWV3XE1hbmFnZVJldmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Staff/AddStaff.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Staff/AddStaff.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU3RhZmZcQWRkU3RhZmYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Staff/EditStaff.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Staff/EditStaff.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU3RhZmZcRWRpdFN0YWZmLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/Staff/ManageStaffs.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Admin/Staff/ManageStaffs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU3RhZmZcTWFuYWdlU3RhZmZzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/User/AddUser.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlclxBZGRVc2VyLmNzaHRtbA==
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Appointment/Book.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcQm9vay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/User/EditUser.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlclxFZGl0VXNlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Admin/User/ManageUser.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlclxNYW5hZ2VVc2VyLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Checkout.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Checkout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Home/Home.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Home/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/LeaveReview.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/LeaveReview.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhdmVSZXZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Login/Login.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Menu.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Menu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/OrderConfirmation.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/OrderConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJDb25maXJtYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kirill/RiderProjects/GITPIZZA/Pizza/Domain/Views/Register/index.cshtml]
+[C:/Users/kirill/RiderProjects/Pizza/Domain/Views/Register/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJcaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

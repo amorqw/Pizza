@@ -1,87 +1,36 @@
-CREATE TABLE Pizzerias
-(
-    PizzeriaId     SERIAL PRIMARY KEY,
-    title          VARCHAR(255) NOT NULL,
-    rating         INT,
-    address        VARCHAR(255) NOT NULL,
-    courierAmount INT CHECK (courierAmount >= 0)
+create table Role (
+                      id_role UUID PRIMARY KEY ,
+                      role_name VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Pizzas
-(
-    PizzaId     SERIAL PRIMARY KEY,
-    title       VARCHAR(255) NOT NULL,
-    description TEXT,
-    price       INT,
-    size        VARCHAR(10) CHECK (size IN ('small', 'medium', 'large')),
-    receipt     TEXT
-);
-CREATE TABLE Users
-(
-    UserId   SERIAL PRIMARY KEY,
-    password VARCHAR             NOT NULL,
-    name     VARCHAR(255)        NOT NULL,
-    surname  VARCHAR(255)        NOT NULL,
-    email    VARCHAR(255) UNIQUE NOT NULL,
-    phone    VARCHAR(200) UNIQUE,
-    role     varchar
+create table Users (
+                       id_user UUID PRIMARY KEY,
+                       first_name VARCHAR(50) NOT NULL,
+                       last_name VARCHAR(50) NOT NULL,
+                       middle_name VARCHAR(50),
+                       phone VARCHAR(20),
+                       email VARCHAR(100) NOT NULL UNIQUE,
+                       password VARCHAR(255) NOT NULL,
+                       id_role UUID NOT NULL
 );
 
-CREATE TABLE PizzasAvailable
-(
-    PizzeriaId INT REFERENCES Pizzerias (pizzeriaid) ON DELETE CASCADE,
-    PizzaId    INT REFERENCES Pizzas (pizzaid) ON DELETE CASCADE,
-    available  BOOLEAN NOT NULL,
-    PRIMARY KEY (pizzeriaid, PizzaId)
+create table Service (
+                         id_service UUID PRIMARY KEY,
+                         service_name VARCHAR(50),
+                         cost INT NOT NULL
+);
+
+create table RepairOrder(
+                            id_order UUID PRIMARY KEY,
+                            id_service UUID NOT NULL,
+                            id_user UUID NOT NULL,
+                            car_registration_number VARCHAR(10) NOT NULL,
+                            car_model VARCHAR(20) NOT NULL,
+                            problem_description TEXT,
+                            datetime TIMESTAMP,
+                            status VARCHAR(20)
 );
 
 
 
-CREATE TABLE Couriers
-(
-    StaffId   SERIAL PRIMARY KEY,
-    FirstName VARCHAR(255) NOT NULL,
-    LastName  VARCHAR(255) NOT NULL,
-    HireDate  TIMESTAMP    not null default current_timestamp
-);
 
-CREATE TABLE Orders
-(
-    OrderId        SERIAL PRIMARY KEY,
-    UserId         INT REFERENCES Users (UserId) ON DELETE CASCADE,
-    StaffId        INT          REFERENCES Couriers (StaffId) ON DELETE SET NULL,
-    date           TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    status         VARCHAR(50)  NOT NULL,
-    address        VARCHAR(255) NOT NULL,
-    PaymentMethod VARCHAR(50)  NOT NULL
-);
-
-CREATE TABLE OrderItems
-(
-    OrderId INT REFERENCES Orders (OrderId) ON DELETE CASCADE,
-    PizzaId INT REFERENCES Pizzas (PizzaId) ON DELETE CASCADE,
-    amount  INT CHECK (amount > 0),
-    PRIMARY KEY (OrderId, PizzaId)
-);
-
-CREATE TABLE Reviews
-(
-    PizzaId    INT REFERENCES Pizzas (pizzaid) ON DELETE CASCADE,
-    UserId     INT REFERENCES Users (UserId) ON DELETE CASCADE,
-    OrderId    INT REFERENCES Orders (OrderId) ON DELETE CASCADE,
-    ReviewDate TIMESTAMP not null default current_timestamp,
-    comment    TEXT,
-    rating     DECIMAL(2, 1) CHECK (rating >= 0 AND rating <= 5),
-    PRIMARY KEY (PizzaId, UserId, OrderId)
-);
-
-
-insert into couriers(FirstName, LastName)
-values (123, 123);
-insert into pizzas(title, description, price, size, receipt)
-values (1, 11, 111, 'large', 'https://open.spotify.com/');
-insert into orders (userid,staffid,status,address,paymentmethod) values(1,1,12, 12,13);
-insert into reviews(pizzaid, userid, orderid, comment, rating) values(3,1,2,1,1);
-insert into PizzasAvailable (pizzeriaid, pizzaid, available) values (1,2,True);
-insert into orderitems (OrderId, PizzaId, amount) values(2,2,22);
-insert into Users(UserId, password, name ,surname ,email,phone) values(1,123,123,123,123,132 )

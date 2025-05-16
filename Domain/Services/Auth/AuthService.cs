@@ -21,15 +21,19 @@ namespace Pizza.Services.Auth
             _httpContextAccessor = httpContextAccessor;  
         }
 
-        public async Task<int> Register(string userName, string email, string password, string PhoneNumber)
+        public async Task<int> Register(string firstName, string lastName, string? middleName, string email, string password, string phoneNumber, Guid idRole)
         {
             var hashedPassword = _passwordHasher.Generate(password);
             var newUser = new Users
             {
-                SurName = userName,
+                IdUser = Guid.NewGuid(),
+                FirstName = firstName,
+                LastName = lastName,
+                MiddleName = middleName,
                 Email = email,
                 Password = hashedPassword,
-                Phone = PhoneNumber
+                Phone = phoneNumber,
+                IdRole = idRole
             };
 
             return await _user.CreateUser(newUser); 
@@ -43,13 +47,6 @@ namespace Pizza.Services.Auth
                 throw new UnauthorizedAccessException("Invalid credentials.");
             }
             var token = _jwtProvider.GenerateToken(user);
-            
-            var context = _httpContextAccessor.HttpContext;
-            if (context != null)
-            {
-                context.Response.Cookies.Append("tasty-cookies", token);
-            }
-
             return token;
         }
 

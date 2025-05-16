@@ -1,0 +1,67 @@
+@model Core.Models.RepairOrder
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование заказа</title>
+    <link href="~/css/edit.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1>Редактирование заказа</h1>
+    <nav class="admin-menu">
+        <a href="/Admin/ManagePizzeria">Manage Pizzerias</a>
+        <a href="/Admin/ManagePizzas">Manage Pizzas</a>
+        <a href="/Admin/ManagePizzaAvailable">Manage PizzasAvailable</a>
+        <a href="/Admin/ManageStaffs">Manage Staffs</a>
+        <a href="/Admin/ManageReview">Manage Reviews</a>
+        <a href="/Admin/ManageOrders">Manage Orders</a>
+        <a href="/Admin/ManageOrderItems">Manage OrderItems</a>
+        <a href="/Admin/ManageUser">Manage Users</a>
+    </nav>
+</header>
+
+<main>
+    <h3>Редактирование заказа #@Model.IdOrder</h3>
+    <form action="/Admin/UpdateRepairOrder/@Model.IdOrder" method="post">
+        <input type="hidden" name="IdOrder" value="@Model.IdOrder" />
+        <div>
+            <label for="DateTime">Дата и время:</label>
+            <input type="datetime-local" id="DateTime" name="DateTime" 
+                   value="@(Model.DateTime != default ? Model.DateTime.ToString() : DateTime.Now.ToString("yyyy-MM-ddTHH:mm"))" 
+                   required />
+        </div>
+        <div>
+            <label for="CarModel">Модель автомобиля:</label>
+            <input type="text" id="CarModel" name="CarModel" value="@Model.CarModel" required />
+        </div>
+        <div>
+            <label for="CarRegistrationNumber">Гос. номер:</label>
+            <input type="text" id="CarRegistrationNumber" name="CarRegistrationNumber" value="@Model.CarRegistrationNumber" required />
+        </div>
+        <div>
+            <label for="Status">Статус:</label>
+            <select id="Status" name="Status" required>
+                <option value="Pending" @(Model.Status == "Pending" ? "selected" : "")>Ожидает</option>
+                <option value="InProgress" @(Model.Status == "InProgress" ? "selected" : "")>В работе</option>
+                <option value="Completed" @(Model.Status == "Completed" ? "selected" : "")>Завершен</option>
+                <option value="Cancelled" @(Model.Status == "Cancelled" ? "selected" : "")>Отменен</option>
+            </select>
+        </div>
+        <div>
+            <label for="ProblemDescription">Описание проблемы:</label>
+            <textarea id="ProblemDescription" name="ProblemDescription" rows="3">@Model.ProblemDescription</textarea>
+        </div>
+
+        <button type="submit" class="btn">Сохранить</button>
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2024 Pizza World Admin Panel</p>
+</footer>
+
+</body>
+</html> 

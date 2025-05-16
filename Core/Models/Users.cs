@@ -5,11 +5,12 @@ namespace Core.Models;
 public class Users
 {
     [Key]
-    public int UserId { get; set; }
-    public string Name { get; set; }=string.Empty;
-    public string SurName { get; set; }=string.Empty;
+    public Guid IdUser { get; set; }
+    public string FirstName { get; set; } = string.Empty;
+    public string LastName { get; set; } = string.Empty;
+    public string? MiddleName { get; set; }
+    public string? Phone { get; set; }
     public string Email { get; set; } = string.Empty;
-    public string Role { get; set; } = "User";
     public string Password { get; set; } = string.Empty;
-    public string Phone { get; set; } = "net";
+    public Guid IdRole { get; set; }
 }
